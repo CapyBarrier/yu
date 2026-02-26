@@ -11,7 +11,7 @@ template <typename ResultPolicy, template <typename> typename OutcomePolicy, typ
 class selection_invoker {
     public:
         template <typename T>
-        static auto create(T&& subject);
+        explicit selection_invoker(T&& subject) : subject_(std::forward<T>(subject)) {}
 
         template <typename... Clauses>
         auto operator()(Clauses&&...) &&;
@@ -24,21 +24,12 @@ class selection_invoker {
 
         captured_subject_t subject_;
 
-        template <typename T>
-        explicit selection_invoker(T&& subject) : subject_(std::forward<T>(subject)) {}
-
         selection_invoker(const selection_invoker&) = delete;
         selection_invoker(selection_invoker&&)      = default;
 
         selection_invoker& operator=(const selection_invoker&) = delete;
         selection_invoker& operator=(selection_invoker&&)      = delete;
 };
-
-template <typename ResultPolicy, template <typename> typename OutcomePolicy, typename Subject>
-template <typename T>
-auto selection_invoker<ResultPolicy, OutcomePolicy, Subject>::create(T&& subject) {
-    return selection_invoker<ResultPolicy, OutcomePolicy, T&&>{std::forward<T>(subject)};
-}
 
 template <typename ResultPolicy, template <typename> typename OutcomePolicy, typename Subject>
 template <typename... Clauses>
