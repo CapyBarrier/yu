@@ -14,7 +14,7 @@ template <                                                             //
     typename Subject                                                   //
     >                                                                  //
 auto select(Subject&& subject) {
-    return detail::selection_invoker<ResultPolicy, OutcomePolicy, Subject>::create(std::forward<Subject>(subject));
+    return detail::selection_invoker<ResultPolicy, OutcomePolicy, Subject>{std::forward<Subject>(subject)};
 }
 
 } // namespace yu::select
