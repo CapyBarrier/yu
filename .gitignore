@@ -6,6 +6,8 @@ cmake_install.cmake
 compile_commands.json
 libs/
 
+CMakeLists.txt
+
 .ninja_deps
 .ninja_log
 build.ninja
