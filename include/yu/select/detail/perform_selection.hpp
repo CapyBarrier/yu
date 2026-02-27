@@ -1,89 +1,121 @@
 #ifndef YU_SELECT_DETAIL_PERFORM_SELECTION_HPP_
 #define YU_SELECT_DETAIL_PERFORM_SELECTION_HPP_
 
-#include "compute_result_type.hpp"
+#include "action_results.hpp"
+#include "apply_result_policy.hpp"
 #include "selection_traits.hpp"
-#include <cstddef>
-#include <functional>
+#include <cstddef> // std::size_t
+#include <functional> // std::reference_wrapper
 #include <optional>
 #include <type_traits>
 #include <utility>
-#include <variant> // std::monostate
 
 namespace yu::select::detail {
 
 template <typename ResultPolicy, template <typename> typename OutcomePolicy, typename Subject, typename... Clauses>
 auto perform_selection(Subject&& subject, Clauses&&... clauses) {
-    using traits = selection_traits<Subject, Clauses...>;
+    using traits = clause_traits<Subject, Clauses...>;
+
+    // Begin Validation
 
     constexpr std::size_t selectable_clause_count = traits::selectable_clause_count;
-    static_assert(selectable_clause_count != 0);
+    static_assert(selectable_clause_count != 0, "At least one Clause must be Selectable for given Subject.");
 
-    constexpr bool all_result_void  = traits::all_result_void;
-    constexpr bool none_result_void = traits::none_result_void;
-    static_assert(all_result_void || none_result_void);
+    constexpr bool all_actions_void  = traits::all_actions_void;
+    constexpr bool none_actions_void = traits::none_actions_void;
+    static_assert(all_actions_void || none_actions_void, "All Actions of Selectable Clauses must either all return void, or all return non-void.");
+
+    // End Validation
 
     using selectable_clauses = traits::selectable_clauses;
 
-    using result_t = std::conditional_t<                                  //
-        none_result_void,                                                 //
-        compute_result_type_t<ResultPolicy, Subject, selectable_clauses>, //
-        void                                                              //
-        >;                                                                //
+    using results_t = action_results_t<Subject, selectable_clauses>;
 
-    constexpr bool is_result_lvalue = std::is_lvalue_reference_v<result_t>;
-    constexpr bool is_result_void   = std::is_void_v<result_t>;
+    using final_result_t = std::conditional_t<   //
+        none_actions_void,                       //
+        apply_result_policy<Subject, results_t>, //
+        std::type_identity<void>                 //
+        >::type;                                 //
 
-    using captured_result_t = std::conditional_t< //
-        is_result_lvalue,                         //
-        std::reference_wrapper<result_t>,         //
-        std::remove_reference_t<result_t>         //
-        >;                                        //
+    using noref_result_t = std::remove_reference_t<final_result_t>;
 
-    using result_storage_t = std::conditional_t< //
-        is_result_void,                          //
-        std::monostate,                          //
-        captured_result_t                        //
-        >;                                       //
+    using outcome_policy = OutcomePolicy<final_result_t>;
 
-    std::optional<result_storage_t> result;
+    if constexpr (std::is_void_v<final_result_t>) {
+        bool succeeded = false;
 
-    bool succeeded = false;
+        auto selector = [&succeeded, &subject]<typename Clause>(Clause&& clause) -> void {
+            if (succeeded) return;
 
-    auto selector = [&succeeded, &subject, &result]<typename Clause>(Clause&& clause) -> void {
-        using decayed_clause = std::decay_t<Clause>;
+            using decayed_clause = std::decay_t<Clause>;
 
-        if (succeeded) return;
-
-        if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
-            if (clause.evaluate_guard(subject)) {
-                if constexpr (is_result_void) {
+            if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
+                if (clause.evaluate_guard(subject)) {
                     std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject));
-                } else if constexpr (is_result_lvalue) {
-                    result.emplace(std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject)));
-                } else {
-                    result = std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject));
+                    succeeded = true;
                 }
-
-                succeeded = true;
             }
-        }
-    };
+        };
 
-    (selector(std::forward<Clauses>(clauses)), ...);
+        (selector(std::forward<Clauses>(clauses)), ...);
 
-    using outcome_policy = OutcomePolicy<result_t>;
+        if (succeeded) return outcome_policy::success();
+        else return outcome_policy::failure();
 
-    if (succeeded) {
-        if constexpr (is_result_void) {
-            return outcome_policy::success();
-        } else if constexpr (is_result_lvalue) {
-            return outcome_policy::success(std::move(*result).get());
+    } else if constexpr (std::is_lvalue_reference_v<final_result_t>) {
+        bool succeeded = false;
+
+        std::optional<std::reference_wrapper<noref_result_t>> result;
+
+        auto selector = [&succeeded, &subject, &result]<typename Clause>(Clause&& clause) -> void {
+            if (succeeded) return;
+
+            using decayed_clause = std::decay_t<Clause>;
+
+            if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
+                if (clause.evaluate_guard(subject)) {
+                    result.emplace(std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject)));
+                    succeeded = true;
+                }
+            }
+        };
+
+        (selector(std::forward<Clauses>(clauses)), ...);
+
+        if (succeeded) {
+            // pass as lvalue reference
+            // (std::reference_wrapper<T>::get() returns T&)
+            return outcome_policy::success((*result).get());
         } else {
-            return outcome_policy::success(std::move(*result));
+            return outcome_policy::failure();
         }
-    } else {
-        return outcome_policy::failure();
+
+    } else { // when final_result_t is rvalue reference or non-reference
+        bool succeeded = false;
+
+        std::optional<noref_result_t> result;
+
+        auto selector = [&succeeded, &subject, &result]<typename Clause>(Clause&& clause) -> void {
+            if (succeeded) return;
+
+            using decayed_clause = std::decay_t<Clause>;
+
+            if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
+                if (clause.evaluate_guard(subject)) {
+                    result.emplace(std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject)));
+                    succeeded = true;
+                }
+            }
+        };
+
+        (selector(std::forward<Clauses>(clauses)), ...);
+
+        if (succeeded) {
+            // pass as rvalue reference
+            return outcome_policy::success(std::move((*result).get()));
+        } else {
+            return outcome_policy::failure();
+        }
     }
 }
 

@@ -31,13 +31,13 @@ struct is_none_actions_result_void<Subject, std::tuple<Clauses...>> {
 };
 
 template <typename Subject, typename... Clauses>
-struct selection_traits {
+struct clause_traits {
         using selectable_clauses = selectable_clauses_t<Subject, Clauses...>;
 
         constexpr static std::size_t selectable_clause_count = std::tuple_size_v<selectable_clauses>;
 
-        constexpr static bool all_result_void  = is_all_actions_result_void<Subject, selectable_clauses>::value;
-        constexpr static bool none_result_void = is_none_actions_result_void<Subject, selectable_clauses>::value;
+        constexpr static bool all_actions_void  = is_all_actions_result_void<Subject, selectable_clauses>::value;
+        constexpr static bool none_actions_void = is_none_actions_result_void<Subject, selectable_clauses>::value;
 };
 
 } // namespace yu::select::detail
