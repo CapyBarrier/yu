@@ -14,7 +14,7 @@ struct action_results<Subject, std::tuple<Clauses...>> {
 };
 
 template <typename Subject, typename ClausesTuple>
-using action_results_t = action_results<Subject, ClausesTuple>;
+using action_results_t = action_results<Subject, ClausesTuple>::type;
 
 } // namespace yu::select::detail
 
