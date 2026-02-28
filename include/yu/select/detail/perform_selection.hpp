@@ -3,8 +3,11 @@
 
 #include "action_results.hpp"
 #include "apply_result_policy.hpp"
-#include "selection_traits.hpp"
-#include <cstddef> // std::size_t
+#include "is_all_void.hpp"
+#include "is_none_void.hpp"
+#include "selectable_clause_count.hpp"
+#include "selectable_clauses.hpp"
+#include <cstddef>    // std::size_t
 #include <functional> // std::reference_wrapper
 #include <optional>
 #include <type_traits>
@@ -14,22 +17,19 @@ namespace yu::select::detail {
 
 template <typename ResultPolicy, template <typename> typename OutcomePolicy, typename Subject, typename... Clauses>
 auto perform_selection(Subject&& subject, Clauses&&... clauses) {
-    using traits = clause_traits<Subject, Clauses...>;
+    using selectable_clauses = selectable_clauses_t<Subject, Clauses...>;
+    using results_t          = action_results_t<Subject, selectable_clauses>;
 
     // Begin Validation
 
-    constexpr std::size_t selectable_clause_count = traits::selectable_clause_count;
+    constexpr std::size_t selectable_clause_count = selectable_clause_count_v<Subject, Clauses...>;
     static_assert(selectable_clause_count != 0, "At least one Clause must be Selectable for given Subject.");
 
-    constexpr bool all_actions_void  = traits::all_actions_void;
-    constexpr bool none_actions_void = traits::none_actions_void;
+    constexpr bool all_actions_void  = is_all_void_v<results_t>;
+    constexpr bool none_actions_void = is_none_void_v<results_t>;
     static_assert(all_actions_void || none_actions_void, "All Actions of Selectable Clauses must either all return void, or all return non-void.");
 
     // End Validation
-
-    using selectable_clauses = traits::selectable_clauses;
-
-    using results_t = action_results_t<Subject, selectable_clauses>;
 
     using final_result_t = std::conditional_t<   //
         none_actions_void,                       //
