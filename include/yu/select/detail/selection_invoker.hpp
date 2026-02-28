@@ -1,7 +1,7 @@
 #ifndef YU_SELECT_DETAIL_SELECTION_INVOKER_HPP_
 #define YU_SELECT_DETAIL_SELECTION_INVOKER_HPP_
 
-#include "capture_t.hpp"
+#include "capture_type.hpp"
 #include "perform_selection.hpp"
 #include <utility>
 
@@ -20,7 +20,7 @@ class selection_invoker {
         auto operator()(Clauses&&...) & = delete;
 
     private:
-        using captured_subject_t = capture_t<Subject>;
+        using captured_subject_t = capture_type_t<Subject>;
 
         captured_subject_t subject_;
 

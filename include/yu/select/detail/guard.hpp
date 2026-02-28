@@ -1,7 +1,7 @@
 #ifndef YU_SELECT_DETAIL_GUARD_HPP_
 #define YU_SELECT_DETAIL_GUARD_HPP_
 
-#include "capture_t.hpp"
+#include "capture_type.hpp"
 #include "clause.hpp"
 #include "condition_for.hpp"
 #include <concepts>
@@ -25,7 +25,7 @@ class guard {
         auto operator|=(Action&&);
 
     private:
-        using captured_conditions_t = std::tuple<capture_t<Conditions>...>;
+        using captured_conditions_t = std::tuple<capture_type_t<Conditions>...>;
 
         captured_conditions_t conditions_;
 };

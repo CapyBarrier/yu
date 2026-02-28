@@ -3,7 +3,7 @@
 
 #include <concepts>
 #include <utility>
-#include <yu/select/detail/capture_t.hpp>
+#include <yu/select/detail/capture_type.hpp>
 
 namespace yu::select::conditions::detail {
 
@@ -20,7 +20,7 @@ class equals_t {
         }
 
     private:
-        using captured_value_t = yu::select::detail::capture_t<Value>;
+        using captured_value_t = yu::select::detail::capture_type_t<Value>;
 
         captured_value_t value_;
 };

@@ -2,7 +2,7 @@
 #define YU_SELECT_DETAIL_CLAUSE_HPP_
 
 #include "action_for.hpp"
-#include "capture_t.hpp"
+#include "capture_type.hpp"
 #include <concepts>
 #include <functional>
 #include <type_traits>
@@ -35,7 +35,7 @@ class clause {
     private:
         using guard_t = std::remove_reference_t<Guard>;
 
-        using captured_action_t = capture_t<Action>;
+        using captured_action_t = capture_type_t<Action>;
 
         guard_t           guard_;
         captured_action_t action_;
