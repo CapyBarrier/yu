@@ -8,7 +8,7 @@ namespace yu::select::detail {
 
 template <typename Subject, typename... Clauses>
 struct selectable_clause_count
-    : std::integral_constant<std::size_t, (std::size_t{Clauses::template has_evaluable_action_for<Subject>} + ... + 0uz)> {};
+    : std::integral_constant<std::size_t, (0uz + ... + std::size_t{Clauses::template has_evaluable_action_for<Subject>})> {};
 
 template <typename Subject, typename... Clauses>
 inline constexpr std::size_t selectable_clause_count_v = selectable_clause_count<Subject, Clauses...>::value;
