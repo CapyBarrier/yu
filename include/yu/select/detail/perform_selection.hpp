@@ -16,7 +16,7 @@
 namespace yu::select::detail {
 
 template <typename ResultPolicy, template <typename> typename OutcomePolicy, typename Subject, typename... Clauses>
-auto perform_selection(Subject&& subject, Clauses&&... clauses) {
+decltype(auto) perform_selection(Subject&& subject, Clauses&&... clauses) {
     using selectable_clauses = selectable_clauses_t<Subject, Clauses...>;
     using results_t          = action_results_t<Subject, selectable_clauses>;
 
