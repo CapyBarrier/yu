@@ -33,14 +33,11 @@ class guard {
 template <typename... Conditions>
 template <typename Subject>
 bool guard<Conditions...>::evaluate(Subject& subject) {
-    if (sizeof...(Conditions) == 0) {
+    if constexpr (sizeof...(Conditions) == 0) {
         return true;
     } else {
         auto evaluator = [&]<typename Condition>(Condition& condition) -> bool {
-            static_assert(                                                          //
-                condition_for<Condition, Subject>,                                  //
-                "Condition must be a predicate or equality comparable with Subject" //
-            );                                                                      //
+            static_assert(condition_for<Condition, Subject>, "Condition must be a predicate or equality comparable with Subject");
 
             if constexpr (std::predicate<Condition&, Subject&>) {
                 return std::invoke(condition, subject);
