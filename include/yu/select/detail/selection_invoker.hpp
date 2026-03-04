@@ -14,7 +14,10 @@ class selection_invoker {
         explicit selection_invoker(T&& subject) : subject_(std::forward<T>(subject)) {}
 
         template <typename... Clauses>
-        auto operator()(Clauses&&...) &&;
+        auto operator()(Clauses&&... clauses) && {
+            return perform_selection<ResultPolicy, OutcomePolicy, Subject, Clauses...> //
+                (std::forward<Subject>(subject_), std::forward<Clauses>(clauses)...);  //
+        }
 
         template <typename... Clauses>
         auto operator()(Clauses&&...) & = delete;
@@ -30,13 +33,6 @@ class selection_invoker {
         selection_invoker& operator=(const selection_invoker&) = delete;
         selection_invoker& operator=(selection_invoker&&)      = delete;
 };
-
-template <typename ResultPolicy, template <typename> typename OutcomePolicy, typename Subject>
-template <typename... Clauses>
-auto selection_invoker<ResultPolicy, OutcomePolicy, Subject>::operator()(Clauses&&... clauses) && {
-    return perform_selection<ResultPolicy, OutcomePolicy, Subject, Clauses...> //
-        (std::forward<Subject>(subject_), std::forward<Clauses>(clauses)...);  //
-}
 
 } // namespace yu::select::detail
 

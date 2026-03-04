@@ -7,13 +7,10 @@ namespace yu::select::detail {
 
 struct where_t {
         template <typename... Conditions>
-        auto operator()(Conditions&&...) const;
+        auto operator()(Conditions&&... conditions) const {
+            return guard<Conditions...>{std::forward<Conditions>(conditions)...};
+        }
 };
-
-template <typename... Conditions>
-auto where_t::operator()(Conditions&&... conditions) const {
-    return guard<Conditions...>{std::forward<Conditions>(conditions)...};
-}
 
 } // namespace yu::select::detail
 

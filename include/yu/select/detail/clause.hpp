@@ -17,10 +17,18 @@ class clause {
         clause(T&& guard, U&& action) : guard_(std::forward<T>(guard)), action_(std::forward<U>(action)) {}
 
         template <typename Subject>
-        bool evaluate_guard(Subject&);
+        bool evaluate_guard(Subject& subject) {
+            return guard_.evaluate(subject);
+        }
 
         template <typename Subject>
-        decltype(auto) evaluate_action(Subject&&);
+        decltype(auto) evaluate_action(Subject&& subject) {
+            if constexpr (std::invocable<Action&&, Subject&&>) {
+                return std::invoke(std::forward<Action>(action_), std::forward<Subject>(subject));
+            } else if constexpr (std::invocable<Action&&>) {
+                return std::invoke(std::forward<Action>(action_));
+            }
+        }
 
         template <typename Subject>
         constexpr static bool has_evaluable_action_for = action_for<Action, Subject>;
@@ -40,22 +48,6 @@ class clause {
         guard_t           guard_;
         captured_action_t action_;
 };
-
-template <typename Guard, typename Action>
-template <typename Subject>
-bool clause<Guard, Action>::evaluate_guard(Subject& subject) {
-    return guard_.evaluate(subject);
-}
-
-template <typename Guard, typename Action>
-template <typename Subject>
-decltype(auto) clause<Guard, Action>::evaluate_action(Subject&& subject) {
-    if constexpr (std::invocable<Action&&, Subject&&>) {
-        return std::invoke(std::forward<Action>(action_), std::forward<Subject>(subject));
-    } else if constexpr (std::invocable<Action&&>) {
-        return std::invoke(std::forward<Action>(action_));
-    }
-}
 
 } // namespace yu::select::detail
 
