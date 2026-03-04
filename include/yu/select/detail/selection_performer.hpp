@@ -8,10 +8,10 @@
 namespace yu::select::detail {
 
 template <typename ResultPolicy, template <typename> typename OutcomePolicy, typename Subject>
-class selection_invoker {
+class selection_performer {
     public:
         template <typename T>
-        explicit selection_invoker(T&& subject) : subject_(std::forward<T>(subject)) {}
+        explicit selection_performer(T&& subject) : subject_(std::forward<T>(subject)) {}
 
         template <typename... Clauses>
         auto operator()(Clauses&&... clauses) && {
@@ -27,11 +27,11 @@ class selection_invoker {
 
         captured_subject_t subject_;
 
-        selection_invoker(const selection_invoker&) = delete;
-        selection_invoker(selection_invoker&&)      = default;
+        selection_performer(const selection_performer&) = delete;
+        selection_performer(selection_performer&&)      = default;
 
-        selection_invoker& operator=(const selection_invoker&) = delete;
-        selection_invoker& operator=(selection_invoker&&)      = delete;
+        selection_performer& operator=(const selection_performer&) = delete;
+        selection_performer& operator=(selection_performer&&)      = delete;
 };
 
 } // namespace yu::select::detail

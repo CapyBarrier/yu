@@ -1,7 +1,7 @@
 #ifndef YU_SELECT_SELECT_HPP_
 #define YU_SELECT_SELECT_HPP_
 
-#include "detail/selection_invoker.hpp"
+#include "detail/selection_performer.hpp"
 #include "outcomes/throwing.hpp"
 #include "results/common_type.hpp"
 #include <utility>
@@ -14,7 +14,7 @@ template <                                                             //
     typename Subject                                                   //
     >                                                                  //
 auto select(Subject&& subject) {
-    return detail::selection_invoker<ResultPolicy, OutcomePolicy, Subject>{std::forward<Subject>(subject)};
+    return detail::selection_performer<ResultPolicy, OutcomePolicy, Subject>{std::forward<Subject>(subject)};
 }
 
 } // namespace yu::select
