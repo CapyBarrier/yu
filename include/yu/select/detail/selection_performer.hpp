@@ -4,6 +4,7 @@
 #include "action_results.hpp"
 #include "apply_result_policy.hpp"
 #include "capture_type.hpp"
+#include "clause_type.hpp"
 #include "is_all_void.hpp"
 #include "is_none_void.hpp"
 #include "selectable_clause_count.hpp"
@@ -23,7 +24,7 @@ class selection_performer {
         explicit selection_performer(T&& subject, U&& outcome_policy)
             : subject_(std::forward<T>(subject)), outcome_policy_(std::forward<U>(outcome_policy)) {}
 
-        template <typename... Clauses>
+        template <clause_type... Clauses>
         decltype(auto) operator()(Clauses&&... clauses) && {
             using selectable_clauses_t = selectable_clauses_t<Subject, Clauses...>;
             using action_results_t     = action_results_t<Subject, selectable_clauses_t>;
