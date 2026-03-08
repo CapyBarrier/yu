@@ -30,7 +30,7 @@ class guard {
                     if constexpr (std::predicate<Condition&, Subject&>) {
                         return std::invoke(condition, subject);
                     } else if constexpr (std::equality_comparable_with<Condition&, Subject&>) {
-                        return condition == subject;
+                        return subject == condition;
                     }
                 };
 
