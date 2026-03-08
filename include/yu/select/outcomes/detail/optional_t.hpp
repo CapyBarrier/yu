@@ -6,10 +6,13 @@
 #include <type_traits>
 #include <utility>
 #include <variant> // std::monostate
+#include <yu/select/policy_tags/outcome_policy_tag.hpp>
 
 namespace yu::select::outcomes::detail {
 
 struct optional_t {
+        using outcome_policy_tag = policy_tags::outcome_policy_tag;
+
         template <typename Result, typename T>
         auto success(T&& result) const {
             if constexpr (std::is_lvalue_reference_v<Result>) {

@@ -2,11 +2,14 @@
 #define YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_THROWING_T_HPP_
 
 #include <utility>
+#include <yu/select/policy_tags/outcome_policy_tag.hpp>
 #include <yu/select/select_error.hpp>
 
 namespace yu::select::outcomes::detail {
 
 struct throwing_t {
+        using outcome_policy_tag = policy_tags::outcome_policy_tag;
+
         template <typename Result, typename T>
         Result success(T&& result) const {
             return std::forward<T>(result);

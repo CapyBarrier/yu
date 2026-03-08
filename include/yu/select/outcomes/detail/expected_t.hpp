@@ -6,12 +6,15 @@
 #include <type_traits>
 #include <utility>
 #include <yu/select/detail/capture_type.hpp>
+#include <yu/select/policy_tags/outcome_policy_tag.hpp>
 
 namespace yu::select::outcomes::detail {
 
 template <typename Error>
 struct expected_t {
     public:
+        using outcome_policy_tag = policy_tags::outcome_policy_tag;
+
         template <typename T>
         explicit expected_t(T&& error) : error_(std::forward<T>(error)) {}
 
