@@ -37,9 +37,9 @@ struct selectable_clauses<Subject, HeadClause, RestClauses...> {
     public:
         using type = std::conditional_t<                            //
             HeadClause::template has_evaluable_action_for<Subject>, //
-            prepend_tuple_t<HeadClause, rest>,                      //
-            rest                                                    //
-            >;                                                      //
+            prepend_tuple<HeadClause, rest>,                        //
+            std::type_identity<rest>                                //
+            >::type;                                                //
 };
 
 template <typename Subject, typename... Clauses>
