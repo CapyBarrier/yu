@@ -2,6 +2,8 @@
 #define YU_SELECT_DETAIL_SELECTION_INVOKER_HPP_
 
 #include "action_results.hpp"
+#include "applicable_outcome_policy.hpp"
+#include "applicable_result_policy.hpp"
 #include "apply_result_policy.hpp"
 #include "capture_type.hpp"
 #include "clause_type.hpp"
@@ -39,7 +41,9 @@ class selection_performer {
             static_assert(all_actions_void || none_actions_void,
                           "All Actions of Selectable Clauses must either all return void, or all return non-void.");
 
-            // End Validations
+            constexpr bool result_policy_applicable = applicable_result_policy<ResultPolicy, action_results_t>;
+            static_assert(result_policy_applicable,
+                          "ResultPolicy must be applicable to the return types of the all Actions of the Selectable Clauses.");
 
             using final_result_t = std::conditional_t<          //
                 none_actions_void,                              //
@@ -47,7 +51,11 @@ class selection_performer {
                 std::type_identity<void>                        //
                 >::type;
 
-            using noref_result_t = std::remove_reference_t<final_result_t>;
+            constexpr bool outcome_policy_applicable = applicable_outcome_policy<OutcomePolicy, final_result_t>;
+            static_assert(outcome_policy_applicable,
+                          "OutcomePolicy must be applicable to the result type determined by ResultPolicy");
+
+            // End Validations
 
             if constexpr (std::is_void_v<final_result_t>) {
                 bool succeeded = false;
@@ -69,8 +77,9 @@ class selection_performer {
 
                 if (succeeded) return outcome_policy_.template success<final_result_t>();
                 else return outcome_policy_.template failure<final_result_t>();
-
             } else if constexpr (std::is_lvalue_reference_v<final_result_t>) {
+                using noref_result_t = std::remove_reference_t<final_result_t>;
+
                 bool succeeded = false;
 
                 std::optional<std::reference_wrapper<noref_result_t>> result;
@@ -92,13 +101,14 @@ class selection_performer {
 
                 if (succeeded) {
                     // pass as lvalue reference
-                    // (std::reference_wrapper<T>::get() returns T&)
+                    // (std::reference_wrapper<T>::get() returns T&. T& must equals final_result_t)
                     return outcome_policy_.template success<final_result_t>((*result).get());
                 } else {
                     return outcome_policy_.template failure<final_result_t>();
                 }
-
             } else { // when final_result_t is rvalue reference or non-reference
+                using noref_result_t = std::remove_reference_t<final_result_t>;
+
                 bool succeeded = false;
 
                 std::optional<noref_result_t> result;
