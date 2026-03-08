@@ -1,12 +1,12 @@
 #ifndef YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_OPTIONAL_T_HPP_
 #define YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_OPTIONAL_T_HPP_
 
+#include <yu/select/policy_tags/outcome_policy_tag.hpp>
 #include <functional> // std::reference_wrapper
 #include <optional>
 #include <type_traits>
 #include <utility>
 #include <variant> // std::monostate
-#include <yu/select/policy_tags/outcome_policy_tag.hpp>
 
 namespace yu::select::outcomes::detail {
 

@@ -1,9 +1,9 @@
 #ifndef YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_THROWING_T_HPP_
 #define YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_THROWING_T_HPP_
 
-#include <utility>
 #include <yu/select/policy_tags/outcome_policy_tag.hpp>
 #include <yu/select/select_error.hpp>
+#include <utility>
 
 namespace yu::select::outcomes::detail {
 
@@ -20,7 +20,8 @@ struct throwing_t {
         Result success() const {}
 
         template <typename Result>
-        [[noreturn]] Result failure() const {
+        [[noreturn]]
+        Result failure() const {
             throw select_error{"No clause was selected"};
         }
 };

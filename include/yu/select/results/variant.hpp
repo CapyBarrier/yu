@@ -1,8 +1,8 @@
 #ifndef YU_SELECT_RESULTS_VARIANT_HPP_
 #define YU_SELECT_RESULTS_VARIANT_HPP_
 
-#include <variant>
 #include <yu/select/policy_tags/result_policy_tag.hpp>
+#include <variant>
 
 namespace yu::select::results {
 

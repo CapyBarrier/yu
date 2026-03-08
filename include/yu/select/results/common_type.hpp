@@ -1,8 +1,8 @@
 #ifndef YU_SELECT_RESULTS_COMMON_TYPE_HPP_
 #define YU_SELECT_RESULTS_COMMON_TYPE_HPP_
 
-#include <type_traits>
 #include <yu/select/policy_tags/result_policy_tag.hpp>
+#include <type_traits>
 
 namespace yu::select::results {
 

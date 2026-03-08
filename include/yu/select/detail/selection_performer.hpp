@@ -23,8 +23,8 @@ template <typename ResultPolicy, typename OutcomePolicy, typename Subject>
 class selection_performer {
     public:
         template <typename T, typename U>
-        explicit selection_performer(T&& subject, U&& outcome_policy)
-            : subject_(std::forward<T>(subject)), outcome_policy_(std::forward<U>(outcome_policy)) {}
+        explicit selection_performer(T&& subject, U&& outcome_policy) :
+            subject_(std::forward<T>(subject)), outcome_policy_(std::forward<U>(outcome_policy)) {}
 
         template <clause_type... Clauses>
         decltype(auto) operator()(Clauses&&... clauses) && {
@@ -33,27 +33,39 @@ class selection_performer {
 
             // Begin Validations
 
-            constexpr std::size_t selectable_clause_count = selectable_clause_count_v<Subject, Clauses...>;
-            static_assert(selectable_clause_count != 0, "At least one Clause must be Selectable for given Subject.");
+            constexpr std::size_t selectable_clause_count =
+                selectable_clause_count_v<Subject, Clauses...>;
+            static_assert(
+                selectable_clause_count != 0,
+                "At least one Clause must be Selectable for given Subject."
+            );
 
             constexpr bool all_actions_void  = is_all_void_v<action_results_t>;
             constexpr bool none_actions_void = is_none_void_v<action_results_t>;
-            static_assert(all_actions_void || none_actions_void,
-                          "All Actions of Selectable Clauses must either all return void, or all return non-void.");
+            static_assert(
+                all_actions_void || none_actions_void,
+                "All Actions of Selectable Clauses must either all return void, or all return non-void."
+            );
 
-            constexpr bool result_policy_applicable = applicable_result_policy<ResultPolicy, action_results_t>;
-            static_assert(result_policy_applicable,
-                          "ResultPolicy must be applicable to the return types of the all Actions of the Selectable Clauses.");
+            constexpr bool result_policy_applicable =
+                applicable_result_policy<ResultPolicy, action_results_t>;
+            static_assert(
+                result_policy_applicable,
+                "ResultPolicy must be applicable to the return types of the all Actions of the Selectable Clauses."
+            );
 
-            using final_result_t = std::conditional_t<          //
-                none_actions_void,                              //
-                apply_result_policy<Subject, action_results_t>, //
-                std::type_identity<void>                        //
-                >::type;
+            using final_result_t = std::conditional_t<
+                none_actions_void,
+                apply_result_policy<Subject, action_results_t>,
+                std::type_identity<void>
+            >::type;
 
-            constexpr bool outcome_policy_applicable = applicable_outcome_policy<OutcomePolicy, final_result_t>;
-            static_assert(outcome_policy_applicable,
-                          "OutcomePolicy must be applicable to the result type determined by ResultPolicy");
+            constexpr bool outcome_policy_applicable =
+                applicable_outcome_policy<OutcomePolicy, final_result_t>;
+            static_assert(
+                outcome_policy_applicable,
+                "OutcomePolicy must be applicable to the result type determined by ResultPolicy"
+            );
 
             // End Validations
 
@@ -67,7 +79,9 @@ class selection_performer {
 
                     if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
                         if (clause.evaluate_guard(subject_)) {
-                            std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject_));
+                            std::forward<Clause>(clause).evaluate_action(
+                                std::forward<Subject>(subject_)
+                            );
                             succeeded = true;
                         }
                     }
@@ -75,8 +89,12 @@ class selection_performer {
 
                 (selector(std::forward<Clauses>(clauses)), ...);
 
-                if (succeeded) return outcome_policy_.template success<final_result_t>();
-                else return outcome_policy_.template failure<final_result_t>();
+                if (succeeded) {
+                    return outcome_policy_.template success<final_result_t>();
+                } else {
+                    return outcome_policy_.template failure<final_result_t>();
+                }
+
             } else if constexpr (std::is_lvalue_reference_v<final_result_t>) {
                 using noref_result_t = std::remove_reference_t<final_result_t>;
 
@@ -84,14 +102,19 @@ class selection_performer {
 
                 std::optional<std::reference_wrapper<noref_result_t>> result;
 
-                auto selector = [&succeeded, this, &result]<typename Clause>(Clause&& clause) -> void {
+                auto selector =
+                    [&succeeded, this, &result]<typename Clause>(Clause&& clause) -> void {
                     if (succeeded) return;
 
                     using decayed_clause = std::decay_t<Clause>;
 
                     if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
                         if (clause.evaluate_guard(subject_)) {
-                            result.emplace(std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject_)));
+                            result.emplace(
+                                std::forward<Clause>(clause).evaluate_action(
+                                    std::forward<Subject>(subject_)
+                                )
+                            );
                             succeeded = true;
                         }
                     }
@@ -113,14 +136,19 @@ class selection_performer {
 
                 std::optional<noref_result_t> result;
 
-                auto selector = [&succeeded, this, &result]<typename Clause>(Clause&& clause) -> void {
+                auto selector =
+                    [&succeeded, this, &result]<typename Clause>(Clause&& clause) -> void {
                     if (succeeded) return;
 
                     using decayed_clause = std::decay_t<Clause>;
 
                     if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
                         if (clause.evaluate_guard(subject_)) {
-                            result.emplace(std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject_)));
+                            result.emplace(
+                                std::forward<Clause>(clause).evaluate_action(
+                                    std::forward<Subject>(subject_)
+                                )
+                            );
                             succeeded = true;
                         }
                     }
@@ -130,7 +158,9 @@ class selection_performer {
 
                 if (succeeded) {
                     // pass as rvalue reference
-                    return outcome_policy_.template success<final_result_t>(std::move((*result).get()));
+                    return outcome_policy_.template success<final_result_t>(
+                        std::move((*result).get())
+                    );
                 } else {
                     return outcome_policy_.template failure<final_result_t>();
                 }

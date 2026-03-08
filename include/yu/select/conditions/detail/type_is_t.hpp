@@ -10,13 +10,10 @@ class type_is_t {
     public:
         template <typename Subject>
         decltype(auto) operator()(Subject&) {
-            return std::is_same_v<           //
-                std::remove_cvref_t<T>,      //
-                std::remove_cvref_t<Subject> //
-                >;                           //
+            return std::is_same_v<std::remove_cvref_t<T>, std::remove_cvref_t<Subject>>;
         }
 };
 
-} // namespace yu::select::actions::detail
+} // namespace yu::select::conditions::detail
 
 #endif

@@ -1,12 +1,12 @@
 #ifndef YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_EXPECTED_T_HPP_
 #define YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_EXPECTED_T_HPP_
 
-#include <expected>
+#include <yu/select/detail/capture_type.hpp>
+#include <yu/select/policy_tags/outcome_policy_tag.hpp>
 #include <functional> // std::reference_wrapper
 #include <type_traits>
 #include <utility>
-#include <yu/select/detail/capture_type.hpp>
-#include <yu/select/policy_tags/outcome_policy_tag.hpp>
+#include <expected>
 
 namespace yu::select::outcomes::detail {
 
@@ -16,7 +16,8 @@ struct expected_t {
         using outcome_policy_tag = policy_tags::outcome_policy_tag;
 
         template <typename T>
-        explicit expected_t(T&& error) : error_(std::forward<T>(error)) {}
+        explicit expected_t(T&& error) :
+            error_(std::forward<T>(error)) {}
 
         template <typename Result, typename T>
         auto success(T&& result) const {

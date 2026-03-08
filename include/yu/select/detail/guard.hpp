@@ -16,7 +16,8 @@ template <typename... Conditions>
 class guard {
     public:
         template <typename... Ts>
-        explicit guard(Ts&&... conditions) : conditions_(std::forward<Ts>(conditions)...) {}
+        explicit guard(Ts&&... conditions) :
+            conditions_(std::forward<Ts>(conditions)...) {}
 
         template <typename Subject>
         bool evaluate(Subject& subject) {
@@ -24,8 +25,10 @@ class guard {
                 return true;
             } else {
                 auto evaluator = [&]<typename Condition>(Condition& condition) -> bool {
-                    static_assert(condition_for<Condition, Subject>,
-                                  "Condition must be a predicate or equality comparable with Subject");
+                    static_assert(
+                        condition_for<Condition, Subject>,
+                        "Condition must be a predicate or equality comparable with Subject"
+                    );
 
                     if constexpr (std::predicate<Condition&, Subject&>) {
                         return std::invoke(condition, subject);
@@ -34,9 +37,11 @@ class guard {
                     }
                 };
 
-                return std::apply(                                                                        //
-                    [&evaluator](auto&... conditions) { return (true && ... && evaluator(conditions)); }, //
-                    conditions_                                                                           //
+                return std::apply(
+                    [&evaluator](auto&... conditions) {
+                        return (true && ... && evaluator(conditions));
+                    },
+                    conditions_
                 );
             }
         }

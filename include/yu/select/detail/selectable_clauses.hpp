@@ -22,11 +22,11 @@ struct selectable_clauses;
 
 template <typename Subject, typename Clause>
 struct selectable_clauses<Subject, Clause> {
-        using type = std::conditional_t< //
+        using type = std::conditional_t<
             Clause::template has_evaluable_action_for<Subject>,
-            std::tuple<Clause>, //
-            std::tuple<>        //
-            >;                  //
+            std::tuple<Clause>,
+            std::tuple<>
+        >;
 };
 
 template <typename Subject, typename HeadClause, typename... RestClauses>
@@ -35,11 +35,11 @@ struct selectable_clauses<Subject, HeadClause, RestClauses...> {
         using rest = selectable_clauses<Subject, RestClauses...>::type;
 
     public:
-        using type = std::conditional_t<                            //
-            HeadClause::template has_evaluable_action_for<Subject>, //
-            prepend_tuple<HeadClause, rest>,                        //
-            std::type_identity<rest>                                //
-            >::type;                                                //
+        using type = std::conditional_t<
+            HeadClause::template has_evaluable_action_for<Subject>,
+            prepend_tuple<HeadClause, rest>,
+            std::type_identity<rest>
+        >::type;
 };
 
 template <typename Subject, typename... Clauses>

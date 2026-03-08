@@ -10,15 +10,15 @@
 
 namespace yu::select {
 
-template <                                                                  //
-    concepts::result_policy  ResultPolicy  = results::common_type,          //
-    concepts::outcome_policy OutcomePolicy = decltype(outcomes::throwing)&, //
-    typename Subject                                                        //
-    >                                                                       //
+template <
+    concepts::result_policy  ResultPolicy  = results::common_type,
+    concepts::outcome_policy OutcomePolicy = decltype(outcomes::throwing)&,
+    typename Subject
+>
 auto select(Subject&& subject, OutcomePolicy&& outcome_policy = outcomes::throwing) {
     return detail::selection_performer<ResultPolicy, OutcomePolicy, Subject>{
-        std::forward<Subject>(subject),             //
-        std::forward<OutcomePolicy>(outcome_policy) //
+        std::forward<Subject>(subject),
+        std::forward<OutcomePolicy>(outcome_policy)
     };
 }
 

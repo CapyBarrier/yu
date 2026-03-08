@@ -7,7 +7,7 @@
 namespace yu::select::actions {
 
 template <typename Value>
- auto value(Value&& v) {
+auto value(Value&& v) {
     return detail::value_t<Value>(std::forward<Value>(v));
 }
 

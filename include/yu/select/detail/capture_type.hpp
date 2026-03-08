@@ -6,11 +6,8 @@
 namespace yu::select::detail {
 
 template <typename T>
-using capture_type_t = std::conditional_t< //
-    std::is_rvalue_reference_v<T>,         //
-    std::decay_t<T>,                       //
-    std::type_identity<T>                  //
-    >::type;                               //
+using capture_type_t =
+    std::conditional_t<std::is_rvalue_reference_v<T>, std::decay_t<T>, std::type_identity<T>>::type;
 
 } // namespace yu::select::detail
 

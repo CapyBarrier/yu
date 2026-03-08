@@ -10,7 +10,8 @@ template <typename ResultTuple>
 struct is_none_void;
 
 template <typename... Results>
-struct is_none_void<std::tuple<Results...>> : std::negation<std::disjunction<std::is_void<Results>...>> {};
+struct is_none_void<std::tuple<Results...>> :
+    std::negation<std::disjunction<std::is_void<Results>...>> {};
 
 template <typename ResultTuple>
 inline constexpr bool is_none_void_v = is_none_void<ResultTuple>::value;
