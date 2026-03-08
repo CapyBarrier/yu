@@ -1,9 +1,9 @@
 #ifndef YU_SELECT_DETAIL_GUARD_HPP_
 #define YU_SELECT_DETAIL_GUARD_HPP_
 
-#include "capture_type.hpp"
 #include "clause.hpp"
-#include "condition_for.hpp"
+#include "concepts/condition_for.hpp"
+#include "meta/capture_type.hpp"
 #include <concepts>
 #include <functional>
 #include <tuple>
@@ -26,7 +26,7 @@ class guard {
             } else {
                 auto evaluator = [&]<typename Condition>(Condition& condition) -> bool {
                     static_assert(
-                        condition_for<Condition, Subject>,
+                        concepts::condition_for<Condition, Subject>,
                         "Condition must be a predicate or equality comparable with Subject"
                     );
 
@@ -52,7 +52,7 @@ class guard {
         }
 
     private:
-        using captured_conditions_t = std::tuple<capture_type_t<Conditions>...>;
+        using captured_conditions_t = std::tuple<meta::capture_type_t<Conditions>...>;
 
         captured_conditions_t conditions_;
 };

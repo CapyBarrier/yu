@@ -1,7 +1,7 @@
 #ifndef YU_SELECT_ACTIONS_DETAIL_VALUE_T_HPP_
 #define YU_SELECT_ACTIONS_DETAIL_VALUE_T_HPP_
 
-#include <yu/select/detail/capture_type.hpp>
+#include <yu/select/detail/meta/capture_type.hpp>
 #include <utility>
 
 namespace yu::select::actions::detail {
@@ -16,7 +16,7 @@ class value_t {
         decltype(auto) operator()() { return std::forward<Value>(value_); }
 
     private:
-        using captured_value_t = yu::select::detail::capture_type_t<Value>;
+        using captured_value_t = yu::select::detail::meta::capture_type_t<Value>;
 
         captured_value_t value_;
 };

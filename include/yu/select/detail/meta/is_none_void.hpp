@@ -1,10 +1,10 @@
-#ifndef YU_INCLUDE_YU_SELECT_DETAIL_IS_NONE_VOID_HPP_
-#define YU_INCLUDE_YU_SELECT_DETAIL_IS_NONE_VOID_HPP_
+#ifndef YU_INCLUDE_YU_SELECT_DETAIL_META_IS_NONE_VOID_HPP_
+#define YU_INCLUDE_YU_SELECT_DETAIL_META_IS_NONE_VOID_HPP_
 
 #include <tuple>
 #include <type_traits>
 
-namespace yu::select::detail {
+namespace yu::select::detail::meta {
 
 template <typename ResultTuple>
 struct is_none_void;
@@ -16,6 +16,6 @@ struct is_none_void<std::tuple<Results...>> :
 template <typename ResultTuple>
 inline constexpr bool is_none_void_v = is_none_void<ResultTuple>::value;
 
-} // namespace yu::select::detail
+} // namespace yu::select::detail::meta
 
 #endif

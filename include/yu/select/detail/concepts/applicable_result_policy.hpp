@@ -1,13 +1,13 @@
-#ifndef YU_INCLUDE_YU_SELECT_DETAIL_APPLICABLE_RESULT_POLICY_HPP_
-#define YU_INCLUDE_YU_SELECT_DETAIL_APPLICABLE_RESULT_POLICY_HPP_
+#ifndef YU_INCLUDE_YU_SELECT_DETAIL_CONCEPTS_APPLICABLE_RESULT_POLICY_HPP_
+#define YU_INCLUDE_YU_SELECT_DETAIL_CONCEPTS_APPLICABLE_RESULT_POLICY_HPP_
 
-#include "apply_result_policy.hpp"
+#include <yu/select/detail/meta/apply_result_policy.hpp>
 #include <concepts>
 #include <functional>
 #include <tuple>
 #include <type_traits>
 
-namespace yu::select::detail {
+namespace yu::select::detail::concepts {
 
 template <typename FinalResult, typename ResultsTuple>
 struct is_constructible_from_each_results : std::false_type {};
@@ -32,13 +32,13 @@ struct is_constructible_from_each_results<FinalResult, std::tuple<Results...>> {
 
 template <typename T, typename ResultsTuple>
 concept applicable_result_policy = requires {
-    typename apply_result_policy_t<T, ResultsTuple>;
+    typename meta::apply_result_policy_t<T, ResultsTuple>;
     requires is_constructible_from_each_results<
-        apply_result_policy_t<T, ResultsTuple>,
+        meta::apply_result_policy_t<T, ResultsTuple>,
         ResultsTuple
     >::value;
 };
 
-} // namespace yu::select::detail
+} // namespace yu::select::detail::concepts
 
 #endif

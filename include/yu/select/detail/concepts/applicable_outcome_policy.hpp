@@ -1,10 +1,10 @@
-#ifndef YU_INCLUDE_YU_SELECT_DETAIL_APPLICABLE_OUTCOME_POLICY_HPP_
-#define YU_INCLUDE_YU_SELECT_DETAIL_APPLICABLE_OUTCOME_POLICY_HPP_
+#ifndef YU_INCLUDE_YU_SELECT_DETAIL_CONCEPTS_APPLICABLE_OUTCOME_POLICY_HPP_
+#define YU_INCLUDE_YU_SELECT_DETAIL_CONCEPTS_APPLICABLE_OUTCOME_POLICY_HPP_
 
 #include <type_traits>
 #include <utility>
 
-namespace yu::select::detail {
+namespace yu::select::detail::concepts {
 
 template <typename T, typename FinalResult>
 consteval bool is_applicable_outcome_policy() {
@@ -26,6 +26,6 @@ consteval bool is_applicable_outcome_policy() {
 template <typename T, typename FinalResult>
 concept applicable_outcome_policy = is_applicable_outcome_policy<T, FinalResult>();
 
-} // namespace yu::select::detail
+} // namespace yu::select::detail::concepts
 
 #endif

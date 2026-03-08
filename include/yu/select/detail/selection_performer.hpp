@@ -1,16 +1,16 @@
 #ifndef YU_SELECT_DETAIL_SELECTION_INVOKER_HPP_
 #define YU_SELECT_DETAIL_SELECTION_INVOKER_HPP_
 
-#include "action_results.hpp"
-#include "applicable_outcome_policy.hpp"
-#include "applicable_result_policy.hpp"
-#include "apply_result_policy.hpp"
-#include "capture_type.hpp"
-#include "clause_type.hpp"
-#include "is_all_void.hpp"
-#include "is_none_void.hpp"
-#include "selectable_clause_count.hpp"
-#include "selectable_clauses.hpp"
+#include "concepts/applicable_outcome_policy.hpp"
+#include "concepts/applicable_result_policy.hpp"
+#include "concepts/clause_type.hpp"
+#include "meta/action_results.hpp"
+#include "meta/apply_result_policy.hpp"
+#include "meta/capture_type.hpp"
+#include "meta/is_all_void.hpp"
+#include "meta/is_none_void.hpp"
+#include "meta/selectable_clause_count.hpp"
+#include "meta/selectable_clauses.hpp"
 #include <cstddef>    // std::size_t
 #include <functional> // std::reference_wrapper
 #include <optional>
@@ -26,29 +26,29 @@ class selection_performer {
         explicit selection_performer(T&& subject, U&& outcome_policy) :
             subject_(std::forward<T>(subject)), outcome_policy_(std::forward<U>(outcome_policy)) {}
 
-        template <clause_type... Clauses>
+        template <concepts::clause_type... Clauses>
         decltype(auto) operator()(Clauses&&... clauses) && {
-            using selectable_clauses_t = selectable_clauses_t<Subject, Clauses...>;
-            using action_results_t     = action_results_t<Subject, selectable_clauses_t>;
+            using selectable_clauses_t = meta::selectable_clauses_t<Subject, Clauses...>;
+            using action_results_t     = meta::action_results_t<Subject, selectable_clauses_t>;
 
             // Begin Validations
 
             constexpr std::size_t selectable_clause_count =
-                selectable_clause_count_v<Subject, Clauses...>;
+                meta::selectable_clause_count_v<Subject, Clauses...>;
             static_assert(
                 selectable_clause_count != 0,
                 "At least one Clause must be Selectable for given Subject."
             );
 
-            constexpr bool all_actions_void  = is_all_void_v<action_results_t>;
-            constexpr bool none_actions_void = is_none_void_v<action_results_t>;
+            constexpr bool all_actions_void  = meta::is_all_void_v<action_results_t>;
+            constexpr bool none_actions_void = meta::is_none_void_v<action_results_t>;
             static_assert(
                 all_actions_void || none_actions_void,
                 "All Actions of Selectable Clauses must either all return void, or all return non-void."
             );
 
             constexpr bool result_policy_applicable =
-                applicable_result_policy<ResultPolicy, action_results_t>;
+                concepts::applicable_result_policy<ResultPolicy, action_results_t>;
             static_assert(
                 result_policy_applicable,
                 "ResultPolicy must be applicable to the return types of the all Actions of the Selectable Clauses."
@@ -56,12 +56,12 @@ class selection_performer {
 
             using final_result_t = std::conditional_t<
                 none_actions_void,
-                apply_result_policy<Subject, action_results_t>,
+                meta::apply_result_policy<Subject, action_results_t>,
                 std::type_identity<void>
             >::type;
 
             constexpr bool outcome_policy_applicable =
-                applicable_outcome_policy<OutcomePolicy, final_result_t>;
+                concepts::applicable_outcome_policy<OutcomePolicy, final_result_t>;
             static_assert(
                 outcome_policy_applicable,
                 "OutcomePolicy must be applicable to the result type determined by ResultPolicy"
@@ -171,7 +171,7 @@ class selection_performer {
         decltype(auto) operator()(Clauses&&...) & = delete;
 
     private:
-        using captured_subject_t = capture_type_t<Subject>;
+        using captured_subject_t = meta::capture_type_t<Subject>;
         using outcome_policy_t   = std::decay_t<OutcomePolicy>;
 
         captured_subject_t subject_;

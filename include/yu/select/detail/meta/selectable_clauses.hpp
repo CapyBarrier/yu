@@ -1,10 +1,10 @@
-#ifndef YU_SELECT_DETAIL_SELECTABLE_CLAUSES_HPP_
-#define YU_SELECT_DETAIL_SELECTABLE_CLAUSES_HPP_
+#ifndef YU_INCLUDE_YU_SELECT_DETAIL_META_SELECTABLE_CLAUSES_HPP_
+#define YU_INCLUDE_YU_SELECT_DETAIL_META_SELECTABLE_CLAUSES_HPP_
 
 #include <tuple>
 #include <type_traits>
 
-namespace yu::select::detail {
+namespace yu::select::detail::meta {
 
 template <typename T, typename Tuple>
 struct prepend_tuple;
@@ -45,6 +45,6 @@ struct selectable_clauses<Subject, HeadClause, RestClauses...> {
 template <typename Subject, typename... Clauses>
 using selectable_clauses_t = selectable_clauses<Subject, Clauses...>::type;
 
-} // namespace yu::select::detail
+} // namespace yu::select::detail::meta
 
 #endif

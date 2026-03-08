@@ -1,9 +1,9 @@
-#ifndef YU_INCLUDE_YU_SELECT_DETAIL_ACTION_RESULTS_HPP_
-#define YU_INCLUDE_YU_SELECT_DETAIL_ACTION_RESULTS_HPP_
+#ifndef YU_INCLUDE_YU_SELECT_DETAIL_META_ACTION_RESULTS_HPP_
+#define YU_INCLUDE_YU_SELECT_DETAIL_META_ACTION_RESULTS_HPP_
 
 #include <tuple>
 
-namespace yu::select::detail {
+namespace yu::select::detail::meta {
 
 template <typename Subject, typename ClausesTuple>
 struct action_results;
@@ -16,6 +16,6 @@ struct action_results<Subject, std::tuple<Clauses...>> {
 template <typename Subject, typename ClausesTuple>
 using action_results_t = action_results<Subject, ClausesTuple>::type;
 
-} // namespace yu::select::detail
+} // namespace yu::select::detail::meta
 
 #endif

@@ -1,10 +1,10 @@
-#ifndef YU_INCLUDE_YU_SELECT_DETAIL_SELECTABLE_CLAUSE_COUNT_HPP_
-#define YU_INCLUDE_YU_SELECT_DETAIL_SELECTABLE_CLAUSE_COUNT_HPP_
+#ifndef YU_INCLUDE_YU_SELECT_DETAIL_META_SELECTABLE_CLAUSE_COUNT_HPP_
+#define YU_INCLUDE_YU_SELECT_DETAIL_META_SELECTABLE_CLAUSE_COUNT_HPP_
 
 #include <cstddef> // std::size_t
 #include <type_traits>
 
-namespace yu::select::detail {
+namespace yu::select::detail::meta {
 
 template <typename Subject, typename... Clauses>
 struct selectable_clause_count :
@@ -17,6 +17,6 @@ template <typename Subject, typename... Clauses>
 inline constexpr std::size_t selectable_clause_count_v =
     selectable_clause_count<Subject, Clauses...>::value;
 
-} // namespace yu::select::detail
+} // namespace yu::select::detail::meta
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef YU_SELECT_CONDITIONS_DETAIL_EQUALS_T_HPP_
 #define YU_SELECT_CONDITIONS_DETAIL_EQUALS_T_HPP_
 
-#include <yu/select/detail/capture_type.hpp>
+#include <yu/select/detail/meta/capture_type.hpp>
 #include <concepts>
 #include <utility>
 
@@ -21,7 +21,7 @@ class equals_t {
         }
 
     private:
-        using captured_value_t = yu::select::detail::capture_type_t<Value>;
+        using captured_value_t = yu::select::detail::meta::capture_type_t<Value>;
 
         captured_value_t value_;
 };

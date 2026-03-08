@@ -1,9 +1,9 @@
-#ifndef YU_INCLUDE_YU_SELECT_DETAIL_APPLY_RESULT_POLICY_HPP_
-#define YU_INCLUDE_YU_SELECT_DETAIL_APPLY_RESULT_POLICY_HPP_
+#ifndef YU_INCLUDE_YU_SELECT_DETAIL_META_APPLY_RESULT_POLICY_HPP_
+#define YU_INCLUDE_YU_SELECT_DETAIL_META_APPLY_RESULT_POLICY_HPP_
 
 #include <tuple>
 
-namespace yu::select::detail {
+namespace yu::select::detail::meta {
 
 template <typename ResultPolicy, typename ResultsTuple>
 struct apply_result_policy;
@@ -16,6 +16,6 @@ struct apply_result_policy<ResultPolicy, std::tuple<Results...>> {
 template <typename ResultPolicy, typename ResultsTuple>
 using apply_result_policy_t = apply_result_policy<ResultPolicy, ResultsTuple>::type;
 
-} // namespace yu::select::detail
+} // namespace yu::select::detail::meta
 
 #endif

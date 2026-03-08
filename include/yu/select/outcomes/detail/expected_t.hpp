@@ -1,7 +1,7 @@
 #ifndef YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_EXPECTED_T_HPP_
 #define YU_INCLUDE_YU_SELECT_OUTCOMES_DETAIL_EXPECTED_T_HPP_
 
-#include <yu/select/detail/capture_type.hpp>
+#include <yu/select/detail/meta/capture_type.hpp>
 #include <yu/select/policy_tags/outcome_policy_tag.hpp>
 #include <functional> // std::reference_wrapper
 #include <type_traits>
@@ -62,7 +62,7 @@ struct expected_t {
         }
 
     private:
-        using captured_error_t = yu::select::detail::capture_type_t<Error>;
+        using captured_error_t = yu::select::detail::meta::capture_type_t<Error>;
 
         captured_error_t error_;
 };
