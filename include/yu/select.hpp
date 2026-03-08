@@ -10,6 +10,7 @@
 #include "select/results/common_type.hpp"
 #include "select/results/variant.hpp"
 
+#include "select/outcomes/expected.hpp"
 #include "select/outcomes/optional.hpp"
 #include "select/outcomes/throwing.hpp"
 

@@ -16,14 +16,15 @@
 
 namespace yu::select::detail {
 
-template <typename ResultPolicy, template <typename> typename OutcomePolicy, typename Subject>
+template <typename ResultPolicy, typename OutcomePolicy, typename Subject>
 class selection_performer {
     public:
-        template <typename T>
-        explicit selection_performer(T&& subject) : subject_(std::forward<T>(subject)) {}
+        template <typename T, typename U>
+        explicit selection_performer(T&& subject, U&& outcome_policy)
+            : subject_(std::forward<T>(subject)), outcome_policy_(std::forward<U>(outcome_policy)) {}
 
         template <typename... Clauses>
-        auto operator()(Clauses&&... clauses) && {
+        decltype(auto) operator()(Clauses&&... clauses) && {
             using selectable_clauses_t = selectable_clauses_t<Subject, Clauses...>;
             using action_results_t     = action_results_t<Subject, selectable_clauses_t>;
 
@@ -47,8 +48,6 @@ class selection_performer {
 
             using noref_result_t = std::remove_reference_t<final_result_t>;
 
-            using outcome_policy = OutcomePolicy<final_result_t>;
-
             if constexpr (std::is_void_v<final_result_t>) {
                 bool succeeded = false;
 
@@ -67,8 +66,8 @@ class selection_performer {
 
                 (selector(std::forward<Clauses>(clauses)), ...);
 
-                if (succeeded) return outcome_policy::success();
-                else return outcome_policy::failure();
+                if (succeeded) return outcome_policy_.template success<final_result_t>();
+                else return outcome_policy_.template failure<final_result_t>();
 
             } else if constexpr (std::is_lvalue_reference_v<final_result_t>) {
                 bool succeeded = false;
@@ -93,9 +92,9 @@ class selection_performer {
                 if (succeeded) {
                     // pass as lvalue reference
                     // (std::reference_wrapper<T>::get() returns T&)
-                    return outcome_policy::success((*result).get());
+                    return outcome_policy_.template success<final_result_t>((*result).get());
                 } else {
-                    return outcome_policy::failure();
+                    return outcome_policy_.template failure<final_result_t>();
                 }
 
             } else { // when final_result_t is rvalue reference or non-reference
@@ -120,20 +119,22 @@ class selection_performer {
 
                 if (succeeded) {
                     // pass as rvalue reference
-                    return outcome_policy::success(std::move((*result).get()));
+                    return outcome_policy_.template success<final_result_t>(std::move((*result).get()));
                 } else {
-                    return outcome_policy::failure();
+                    return outcome_policy_.template failure<final_result_t>();
                 }
             }
         }
 
         template <typename... Clauses>
-        auto operator()(Clauses&&...) & = delete;
+        decltype(auto) operator()(Clauses&&...) & = delete;
 
     private:
         using captured_subject_t = capture_type_t<Subject>;
+        using outcome_policy_t   = std::decay_t<OutcomePolicy>;
 
         captured_subject_t subject_;
+        outcome_policy_t   outcome_policy_;
 
         selection_performer(const selection_performer&) = delete;
         selection_performer(selection_performer&&)      = default;
