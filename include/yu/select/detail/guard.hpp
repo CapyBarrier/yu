@@ -24,23 +24,17 @@ class guard {
             if constexpr (sizeof...(Conditions) == 0) {
                 return true;
             } else {
-                auto evaluator = [&]<typename Condition>(Condition& condition) -> bool {
+                auto evaluator = [&subject]<typename Condition>(Condition& condition) -> bool {
                     static_assert(
                         concepts::condition_for<Condition, Subject>,
-                        "Condition must be a predicate or equality comparable with Subject"
+                        "Condition must be invocable on a Subject and return a type convertible to bool"
                     );
 
-                    if constexpr (std::predicate<Condition&, Subject&>) {
-                        return std::invoke(condition, subject);
-                    } else if constexpr (std::equality_comparable_with<Condition&, Subject&>) {
-                        return subject == condition;
-                    }
+                    return std::invoke(condition, subject);
                 };
 
                 return std::apply(
-                    [&evaluator](auto&... conditions) {
-                        return (true && ... && evaluator(conditions));
-                    },
+                    [&evaluator](auto&... conditions) { return (... && evaluator(conditions)); },
                     conditions_
                 );
             }
