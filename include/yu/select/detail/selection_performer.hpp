@@ -33,12 +33,8 @@ class selection_performer {
 
             // Begin Validations
 
-            constexpr std::size_t selectable_clause_count =
-                meta::selectable_clause_count_v<Subject, Clauses...>;
-            static_assert(
-                selectable_clause_count != 0,
-                "At least one Clause must be Selectable for given Subject."
-            );
+            constexpr std::size_t selectable_clause_count = meta::selectable_clause_count_v<Subject, Clauses...>;
+            static_assert(selectable_clause_count != 0, "At least one Clause must be Selectable for given Subject.");
 
             constexpr bool all_actions_void  = meta::is_all_void_v<action_results_t>;
             constexpr bool none_actions_void = meta::is_none_void_v<action_results_t>;
@@ -69,98 +65,70 @@ class selection_performer {
 
             // End Validations
 
-            if constexpr (std::is_void_v<final_result_t>) {
-                bool succeeded = false;
+            bool succeeded = false;
 
-                auto selector = [&succeeded, this]<typename Clause>(Clause&& clause) -> void {
-                    if (succeeded) return;
+            auto selector = [&succeeded, this]<typename Clause>(Clause&& clause, auto& on_selected) {
+                if (succeeded) return;
 
-                    using decayed_clause = std::decay_t<Clause>;
+                using decayed_clause = std::decay_t<Clause>;
 
-                    if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
-                        if (clause.evaluate_guard(subject_)) {
-                            std::forward<Clause>(clause).evaluate_action(
-                                std::forward<Subject>(subject_)
-                            );
-                            succeeded = true;
-                        }
+                if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
+                    if (clause.evaluate_guard(subject_)) {
+                        on_selected(std::forward<Clause>(clause));
+                        succeeded = true;
                     }
+                }
+            };
+
+            auto eval_selector = [&selector]<typename... Cs>(auto& on_selected, Cs&&... cs) {
+                (selector(std::forward<Cs>(cs), on_selected), ...);
+            };
+
+            if constexpr (std::is_void_v<final_result_t>) {
+                auto on_selected = [this]<typename Clause>(Clause&& clause) {
+                    // discard the result
+                    void(std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject_)));
                 };
 
-                (selector(std::forward<Clauses>(clauses)), ...);
+                eval_selector(on_selected, std::forward<Clauses>(clauses)...);
 
                 if (succeeded) {
                     return outcome_policy_.template success<final_result_t>();
                 } else {
                     return outcome_policy_.template failure<final_result_t>();
                 }
-
             } else if constexpr (std::is_lvalue_reference_v<final_result_t>) {
                 using noref_result_t = std::remove_reference_t<final_result_t>;
 
-                bool succeeded = false;
-
                 std::optional<std::reference_wrapper<noref_result_t>> result;
 
-                auto selector =
-                    [&succeeded, this, &result]<typename Clause>(Clause&& clause) -> void {
-                    if (succeeded) return;
-
-                    using decayed_clause = std::decay_t<Clause>;
-
-                    if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
-                        if (clause.evaluate_guard(subject_)) {
-                            result.emplace(
-                                std::forward<Clause>(clause).evaluate_action(
-                                    std::forward<Subject>(subject_)
-                                )
-                            );
-                            succeeded = true;
-                        }
-                    }
+                auto on_selected = [&result, this]<typename Clause>(Clause&& clause) {
+                    result.emplace(std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject_)));
                 };
 
-                (selector(std::forward<Clauses>(clauses)), ...);
+                eval_selector(on_selected, std::forward<Clauses>(clauses)...);
 
                 if (succeeded) {
                     // pass as lvalue reference
                     // (std::reference_wrapper<T>::get() returns T&. T& must equals final_result_t)
-                    return outcome_policy_.template success<final_result_t>((*result).get());
+                    return outcome_policy_.template success<final_result_t>(result->get());
                 } else {
                     return outcome_policy_.template failure<final_result_t>();
                 }
-            } else { // when final_result_t is rvalue reference or non-reference
+            } else {
                 using noref_result_t = std::remove_reference_t<final_result_t>;
-
-                bool succeeded = false;
 
                 std::optional<noref_result_t> result;
 
-                auto selector =
-                    [&succeeded, this, &result]<typename Clause>(Clause&& clause) -> void {
-                    if (succeeded) return;
-
-                    using decayed_clause = std::decay_t<Clause>;
-
-                    if constexpr (decayed_clause::template has_evaluable_action_for<Subject&&>) {
-                        if (clause.evaluate_guard(subject_)) {
-                            result.emplace(
-                                std::forward<Clause>(clause).evaluate_action(
-                                    std::forward<Subject>(subject_)
-                                )
-                            );
-                            succeeded = true;
-                        }
-                    }
+                auto on_selected = [&result, this]<typename Clause>(Clause&& clause) {
+                    result.emplace(std::forward<Clause>(clause).evaluate_action(std::forward<Subject>(subject_)));
                 };
 
-                (selector(std::forward<Clauses>(clauses)), ...);
+                eval_selector(on_selected, std::forward<Clauses>(clauses)...);
 
                 if (succeeded) {
                     // pass as rvalue reference
-                    return outcome_policy_.template success<final_result_t>(
-                        std::move((*result).get())
-                    );
+                    return outcome_policy_.template success<final_result_t>(std::move(*result));
                 } else {
                     return outcome_policy_.template failure<final_result_t>();
                 }
