@@ -43,12 +43,14 @@ class selection_performer {
                 "All Actions of Selectable Clauses must either all return void, or all return non-void."
             );
 
-            constexpr bool result_policy_applicable =
-                concepts::applicable_result_policy<ResultPolicy, action_results_t>;
-            static_assert(
-                result_policy_applicable,
-                "ResultPolicy must be applicable to the return types of the all Actions of the Selectable Clauses."
-            );
+            if constexpr (none_actions_void) {
+                constexpr bool result_policy_applicable =
+                    concepts::applicable_result_policy<ResultPolicy, action_results_t>;
+                static_assert(
+                    result_policy_applicable,
+                    "ResultPolicy must be applicable to the return types of the all Actions of the Selectable Clauses."
+                );
+            }
 
             using final_result_t = std::conditional_t<
                 none_actions_void,
