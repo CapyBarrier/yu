@@ -5,13 +5,13 @@
 #include "concepts/result_policy.hpp"
 #include "detail/selection_performer.hpp"
 #include "outcomes/throwing.hpp"
-#include "results/deduced.hpp"
+#include "results/common_type.hpp"
 #include <utility>
 
 namespace yu::select {
 
 template <
-    concepts::result_policy  ResultPolicy  = results::deduced,
+    concepts::result_policy  ResultPolicy  = results::common_type,
     concepts::outcome_policy OutcomePolicy = outcomes::throwing&&,
     typename Subject
 >

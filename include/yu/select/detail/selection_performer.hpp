@@ -54,7 +54,7 @@ class selection_performer {
 
             using final_result_t = std::conditional_t<
                 none_actions_void,
-                meta::apply_result_policy<Subject, action_results_t>,
+                meta::apply_result_policy<ResultPolicy, action_results_t>,
                 std::type_identity<void>
             >::type;
 
