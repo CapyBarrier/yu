@@ -16,11 +16,11 @@ struct expected {
         using outcome_policy_tag = policy_tags::outcome_policy_tag;
 
         template <typename T>
-        explicit expected(T&& error) :
+        constexpr explicit expected(T&& error) :
             error_(std::forward<T>(error)) {}
 
         template <typename Result, typename T>
-        auto success(T&& result) const {
+        constexpr auto success(T&& result) const {
             if constexpr (std::is_lvalue_reference_v<Result>) {
                 using value_t = std::reference_wrapper<std::remove_reference_t<Result>>;
                 return std::expected<value_t, Error>{std::forward<T>(result)};
@@ -35,13 +35,13 @@ struct expected {
 
         template <typename Result>
         requires std::is_void_v<Result>
-        auto success() const {
+        constexpr auto success() const {
             using value_t = Result;
             return std::expected<value_t, Error>{};
         }
 
         template <typename Result>
-        auto failure() const {
+        constexpr auto failure() const {
             if constexpr (std::is_lvalue_reference_v<Result>) {
                 using value_t = std::reference_wrapper<std::remove_reference_t<Result>>;
                 return std::expected<value_t, Error>{std::unexpected{std::forward<Error>(error_)}};

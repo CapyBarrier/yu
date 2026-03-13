@@ -10,10 +10,10 @@ template <typename Value>
 class value_t {
     public:
         template <typename T>
-        explicit value_t(T&& value) :
+        constexpr explicit value_t(T&& value) :
             value_(std::forward<T>(value)) {}
 
-        decltype(auto) operator()() { return std::forward<Value>(value_); }
+        constexpr decltype(auto) operator()() { return std::forward<Value>(value_); }
 
     private:
         using captured_value_t = yu::select::detail::meta::capture_type_t<Value>;

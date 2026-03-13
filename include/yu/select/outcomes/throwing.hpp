@@ -11,17 +11,17 @@ struct throwing {
         using outcome_policy_tag = policy_tags::outcome_policy_tag;
 
         template <typename Result, typename T>
-        Result success(T&& result) const {
+        constexpr Result success(T&& result) const {
             return std::forward<T>(result);
         }
 
         template <typename Result>
         requires std::is_void_v<Result>
-        Result success() const {}
+        constexpr Result success() const {}
 
         template <typename Result>
         [[noreturn]]
-        Result failure() const {
+        constexpr Result failure() const {
             throw select_error{"No clause was selected"};
         }
 };

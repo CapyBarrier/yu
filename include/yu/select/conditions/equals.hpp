@@ -7,8 +7,8 @@
 namespace yu::select::conditions {
 
 template <typename Value>
-auto equals(Value&& value) {
-    return equals_t<Value>(std::forward<Value>(value));
+constexpr auto equals(Value&& value) {
+    return detail::equals_t<Value>(std::forward<Value>(value));
 }
 
 } // namespace yu::select::conditions

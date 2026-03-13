@@ -14,16 +14,16 @@ template <typename Guard, typename Action>
 class clause {
     public:
         template <typename T, typename U>
-        clause(T&& guard, U&& action) :
+        constexpr explicit clause(T&& guard, U&& action) :
             guard_(std::forward<T>(guard)), action_(std::forward<U>(action)) {}
 
         template <typename Subject>
-        bool evaluate_guard(Subject& subject) {
+        constexpr bool evaluate_guard(Subject& subject) {
             return guard_.evaluate(subject);
         }
 
         template <typename Subject>
-        decltype(auto) evaluate_action(Subject&& subject) {
+        constexpr decltype(auto) evaluate_action(Subject&& subject) {
             if constexpr (std::invocable<Action&&, Subject&&>) {
                 return std::invoke(std::forward<Action>(action_), std::forward<Subject>(subject));
             } else if constexpr (std::invocable<Action&&>) {

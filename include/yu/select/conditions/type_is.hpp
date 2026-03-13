@@ -6,7 +6,7 @@
 namespace yu::select::conditions {
 
 template <typename T>
-inline detail::type_is_t<T> type_is;
+inline constexpr detail::type_is_t<T> type_is;
 
 } // namespace yu::select::conditions
 

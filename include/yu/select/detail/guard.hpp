@@ -16,11 +16,11 @@ template <typename... Conditions>
 class guard {
     public:
         template <typename... Ts>
-        explicit guard(Ts&&... conditions) :
+        constexpr explicit guard(Ts&&... conditions) :
             conditions_(std::forward<Ts>(conditions)...) {}
 
         template <typename Subject>
-        bool evaluate(Subject& subject) {
+        constexpr bool evaluate(Subject& subject) {
             if constexpr (sizeof...(Conditions) == 0) {
                 return true;
             } else {
@@ -41,7 +41,7 @@ class guard {
         }
 
         template <typename Action>
-        auto operator|=(Action&& action) {
+        constexpr auto operator|=(Action&& action) {
             return clause<guard, Action>{std::move(*this), std::forward<Action>(action)};
         }
 

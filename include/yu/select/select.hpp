@@ -15,7 +15,7 @@ template <
     concepts::outcome_policy OutcomePolicy = outcomes::throwing&&,
     typename Subject
 >
-auto select(Subject&& subject, OutcomePolicy&& outcome_policy = outcomes::throwing{}) {
+constexpr auto select(Subject&& subject, OutcomePolicy&& outcome_policy = outcomes::throwing{}) {
     return detail::selection_performer<ResultPolicy, OutcomePolicy, Subject>{
         std::forward<Subject>(subject),
         std::forward<OutcomePolicy>(outcome_policy)

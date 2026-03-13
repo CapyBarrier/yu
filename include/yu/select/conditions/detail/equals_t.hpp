@@ -11,12 +11,12 @@ template <typename Value>
 class equals_t {
     public:
         template <typename T>
-        explicit equals_t(T&& value) :
+        constexpr explicit equals_t(T&& value) :
             value_(std::forward<T>(value)) {}
 
         template <typename Subject>
         requires std::equality_comparable_with<Value&&, Subject&>
-        decltype(auto) operator()(Subject& subject) {
+        constexpr decltype(auto) operator()(Subject& subject) {
             return std::forward<Value>(value_) == subject;
         }
 

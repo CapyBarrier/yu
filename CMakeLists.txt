@@ -13,3 +13,10 @@ add_executable(yu_select_test
 target_link_libraries(yu_select_test
     PRIVATE yu.select
 )
+
+# ビルド後に実行（失敗したらビルド失敗）
+add_custom_command(
+    TARGET yu_select_test
+    POST_BUILD
+    COMMAND $<TARGET_FILE:yu_select_test>
+)

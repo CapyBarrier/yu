@@ -14,7 +14,7 @@ struct optional_t {
         using outcome_policy_tag = policy_tags::outcome_policy_tag;
 
         template <typename Result, typename T>
-        auto success(T&& result) const {
+        constexpr auto success(T&& result) const {
             if constexpr (std::is_lvalue_reference_v<Result>) {
                 using value_t = std::reference_wrapper<std::remove_reference_t<Result>>;
                 return std::optional<value_t>{std::forward<T>(result)};
@@ -29,13 +29,13 @@ struct optional_t {
 
         template <typename Result>
         requires std::is_void_v<Result>
-        auto success() const {
+        constexpr auto success() const {
             using value_t = std::monostate;
             return std::optional<value_t>{std::monostate{}};
         }
 
         template <typename Result>
-        auto failure() const {
+        constexpr auto failure() const {
             if constexpr (std::is_lvalue_reference_v<Result>) {
                 using value_t = std::reference_wrapper<std::remove_reference_t<Result>>;
                 return std::optional<value_t>{std::nullopt};
@@ -50,7 +50,7 @@ struct optional_t {
 
         template <typename Result>
         requires std::is_void_v<Result>
-        auto failure() const {
+        constexpr auto failure() const {
             using value_t = std::monostate;
             return std::optional<value_t>{std::nullopt};
         }

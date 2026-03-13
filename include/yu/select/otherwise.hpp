@@ -1,11 +1,11 @@
 #ifndef YU_SELECT_OTHERWISE_HPP_
 #define YU_SELECT_OTHERWISE_HPP_
 
-#include "detail/guard.hpp"
+#include "detail/otherwise_t.hpp"
 
 namespace yu::select {
 
-inline auto otherwise = detail::guard<>{};
+inline constexpr auto otherwise = detail::otherwise_t{};
 
 } // namespace yu::select
 

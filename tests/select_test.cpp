@@ -1,21 +1,20 @@
 #include <yu/select.hpp>
 #include <iostream>
+#include <string_view>
+#include <cassert>
 
-constexpr auto multiplication_of(int n) {
-    return [=](int x) { return x % n == 0; };
+using namespace std::string_view_literals;
+
+constexpr auto mod2(int x) {
+    using namespace yu::select;
+
+    return select(x)(
+        where([](int n) { return n % 2 == 0; }) |= actions::value(0),
+        otherwise |= actions::value(1)
+    );
 }
 
 int main() {
-    using namespace yu::select;
-
-    for (int n = 1; n <= 20; n++) {
-        select(n)(
-            where(multiplication_of(15)) |= [] { std::cout << "fizzbuzz"; },
-            where(multiplication_of(5)) |= [] { std::cout << "buzz"; },
-            where(multiplication_of(3)) |= [] { std::cout << "fizz"; },
-            otherwise |= [](int x) { std::cout << x; }
-        );
-
-        std::cout << " ";
-    }
+    constexpr int x = mod2(1);
+    assert(x == 1);
 }

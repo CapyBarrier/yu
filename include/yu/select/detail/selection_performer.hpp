@@ -23,11 +23,11 @@ template <typename ResultPolicy, typename OutcomePolicy, typename Subject>
 class selection_performer {
     public:
         template <typename T, typename U>
-        explicit selection_performer(T&& subject, U&& outcome_policy) :
+        constexpr explicit selection_performer(T&& subject, U&& outcome_policy) :
             subject_(std::forward<T>(subject)), outcome_policy_(std::forward<U>(outcome_policy)) {}
 
         template <concepts::clause_type... Clauses>
-        decltype(auto) operator()(Clauses&&... clauses) && {
+        constexpr decltype(auto) operator()(Clauses&&... clauses) && {
             using selectable_clauses_t = meta::selectable_clauses_t<Subject, Clauses...>;
             using action_results_t     = meta::action_results_t<Subject, selectable_clauses_t>;
 
