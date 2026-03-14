@@ -1,5 +1,5 @@
-#ifndef YU_INCLUDE_YU_SELECT_OUTCOMES_THROWING_HPP_
-#define YU_INCLUDE_YU_SELECT_OUTCOMES_THROWING_HPP_
+#ifndef YU_SELECT_OUTCOMES_THROWING_HPP_
+#define YU_SELECT_OUTCOMES_THROWING_HPP_
 
 #include <yu/select/policy_tags/outcome_policy_tag.hpp>
 #include <yu/select/select_error.hpp>

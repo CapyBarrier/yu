@@ -1,5 +1,5 @@
-#ifndef YU_INCLUDE_YU_SELECT_OUTCOMES_OPTIONAL_HPP_
-#define YU_INCLUDE_YU_SELECT_OUTCOMES_OPTIONAL_HPP_
+#ifndef YU_SELECT_OUTCOMES_OPTIONAL_HPP_
+#define YU_SELECT_OUTCOMES_OPTIONAL_HPP_
 
 #include <yu/select/policy_tags/outcome_policy_tag.hpp>
 #include <functional> // std::reference_wrapper
