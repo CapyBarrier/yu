@@ -1,6 +1,8 @@
 #ifndef YU_SELECT_HPP_
 #define YU_SELECT_HPP_
 
+#warning "Yu.select is deprecated library. It will be redesigned and remade someday."
+
 #include "select/actions.hpp"
 #include "select/conditions.hpp"
 #include "select/otherwise.hpp"
