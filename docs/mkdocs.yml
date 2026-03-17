@@ -1,5 +1,6 @@
 site_name: Yu Library
 site_url: https://CapyBarrier.github.io/yu/
+site_dir: ../build/docs/site
 
 repo_url: https://github.com/CapyBarrier/yu
 repo_name: CapyBarrier/yu
