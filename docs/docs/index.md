@@ -1,3 +1,3 @@
-# Yu Library
+# Main Page
 
 Work in progress...
