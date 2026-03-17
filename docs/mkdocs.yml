@@ -1,0 +1,8 @@
+site_name: Yu Library
+site_url: https://CapyBarrier.github.io/yu/
+
+repo_url: https://github.com/CapyBarrier/yu
+repo_name: CapyBarrier/yu
+
+theme:
+  name: material
