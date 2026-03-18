@@ -19,3 +19,8 @@ theme:
     accent: blue
   features:
     - navigation.indexes
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
