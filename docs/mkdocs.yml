@@ -1,9 +1,21 @@
-site_name: Yu Library
+site_name: Yu C++ライブラリ
 site_url: https://CapyBarrier.github.io/yu/
 site_dir: ../build/docs/site
 
 repo_url: https://github.com/CapyBarrier/yu
 repo_name: CapyBarrier/yu
 
+plugins:
+  - search
+  - awesome-pages
+
 theme:
   name: material
+  language: ja
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
+  palette:
+    primary: deep-purple
+    accent: blue
+  features:
+    - navigation.indexes
