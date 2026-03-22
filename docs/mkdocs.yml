@@ -8,6 +8,8 @@ repo_name: CapyBarrier/yu
 plugins:
   - search
   - awesome-pages
+  - macros:
+      include_dir: docs/assets/includes
 
 theme:
   name: material
