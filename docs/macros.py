@@ -1,4 +1,6 @@
 import os
+from pathlib import Path
+
 
 def define_env(env):
     """
@@ -17,7 +19,7 @@ def define_env(env):
         The path is relative to the top directory of the documentation
         project.
         """
-        full_filename = os.path.join(env.project_dir, filename)
+        full_filename = Path(os.path.join(env.project_dir, filename))
         with open(full_filename, 'r', encoding="utf-8") as f:
             lines = f.readlines()
         line_range = lines[start_line:end_line]
