@@ -1,5 +1,6 @@
 nav:
   - index.md
+  - release
   - reference
   - design
   - license
