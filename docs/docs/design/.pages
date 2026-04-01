@@ -1,1 +1,10 @@
 title: 設計
+
+nav:
+  principle.md
+  development-style.md
+  sublibrary.md
+  namespaces.md
+  physical-configuration.md
+  extensibility.md
+  versioning.md
