@@ -1,3 +1,2 @@
 # Yu C++ライブラリ
 
-Work in progress...
