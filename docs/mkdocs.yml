@@ -11,7 +11,6 @@ plugins:
   - macros:
       include_dir: docs/assets/includes
       module_name: macros
-  - footnotes
 
 
 theme:
