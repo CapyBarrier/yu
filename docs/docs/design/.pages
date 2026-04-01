@@ -1,6 +1,7 @@
 title: 設計
 
 nav:
+  - index.md
   - principle.md
   - development-style.md
   - sublibrary.md
