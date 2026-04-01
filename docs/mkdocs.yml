@@ -11,6 +11,8 @@ plugins:
   - macros:
       include_dir: docs/assets/includes
       module_name: macros
+  - footnotes
+
 
 theme:
   name: material
@@ -22,9 +24,17 @@ theme:
     accent: blue
   features:
     - navigation.indexes
+    - navigation.tabs
+    - toc.integrate
+    - content.code.copy
+
 
 markdown_extensions:
   - admonition
+  - def_list
+  - footnotes
   - pymdownx.details
   - pymdownx.superfences
-  - def_list
+  - pymdownx.highlight:
+      line_spans: __span
+      pygments_lang_class: true
