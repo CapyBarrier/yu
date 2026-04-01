@@ -10,6 +10,7 @@ plugins:
   - awesome-pages
   - macros:
       include_dir: docs/assets/includes
+      module_name: macros
 
 theme:
   name: material
