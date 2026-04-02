@@ -30,8 +30,6 @@ theme:
     - navigation.indexes
     - navigation.tabs
     - toc.integrate
-    - content.code.copy
-
 
 markdown_extensions:
   - admonition
