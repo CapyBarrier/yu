@@ -1,5 +1,7 @@
 # `yu::tuples::tuple_structured`
 
+{% include 'unstable.md' %}
+
 ```cpp
 namespace yu::tuples {
     template <typename T>
@@ -9,9 +11,9 @@ namespace yu::tuples {
 
 ## 概要
 
-``tuple_structured``は，{{ entity_link('tuple', '..') }}のモデルとなる型を構文的に厳密に判定するコンセプトである．
+``tuple_structured``は，{{ 'yu::tuples::tuple' | link }}のモデルとなる型を構文的に厳密に判定するコンセプトである．
 
 ## モデル
 
-ある型が``tuple_structured``のモデルであることは，{{ entity_link('tuple', '..') }}のモデルであることと論理的に同値である．
-{{ entity_link('tuple', '..') }}を参照すること．
+ある型が``tuple_structured``のモデルであることは，{{ 'yu::tuples::tuple' | link }}のモデルであることと論理的に同値である．
+{{ 'yu::tuples::tuple' | link }}を参照すること．

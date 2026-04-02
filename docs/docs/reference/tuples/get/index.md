@@ -1,5 +1,7 @@
 # `yu::tuples::get`
 
+{% include 'unstable.md' %}
+
 ```cpp
 namespace yu::tuples {
     inline namespace unspecified {
@@ -19,8 +21,8 @@ Tupleから指定した位置の要素を取得する関数オブジェクト．
 部分式`expr`の型を`T`，`expr`を評価した値を`t`とする．
 このとき，式`yu::tuples::get<Idx>(expr)`の効果は以下の通りとなる．
 
-1. {{ code_in_link(entity_link('size', '..')+'<T>') }}が有効な式でなければ，呼び出しは不適格．
-2. {{ code_in_link('Idx < '+entity_link('size', '..')+'<T>') }}でなければ，呼び出しは不適格．
+1. {{ code('yu::tuples::size' | link, '<T>') }}が有効な式でなければ，呼び出しは不適格．
+2. {{ code('Idx < ', 'yu::tuples::size' | link, '<T>') }}でなければ，呼び出しは不適格．
 3. `std::remove_cvref_t<T>`が`std::tuple`の特殊化であれば，`std::get<Idx>(t)`と等しい．
 4. `std::remove_cvref_t<T>`が要素数の判明している配列型であれば，`t[Idx]`と等しい．
 5. `t.template get<Idx>()`が有効な式であれば，`t.template get<Idx>()`と等しい．

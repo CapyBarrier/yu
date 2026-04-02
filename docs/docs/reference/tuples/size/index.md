@@ -1,9 +1,11 @@
 # `yu::tuples::size`
 
+{% include 'unstable.md' %}
+
 ```cpp
 namespace yu::tuples {
     template <typename T>
-    struct size{};
+    struct size;
 
     template <typename T>
     inline constexpr std::size_t size_v = size<T>::value;

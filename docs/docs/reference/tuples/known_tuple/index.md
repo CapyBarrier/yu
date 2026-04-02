@@ -1,5 +1,7 @@
 # `yu::tuples::known_tuple`
 
+{% include 'unstable.md' %}
+
 ```cpp
 namespace yu::tuples {
     template <typename T>
@@ -24,11 +26,11 @@ namespace yu::tuples {
 
 ## 概要
 
-{{ entity_link('tuple', '..') }}コンセプトの評価の動作をカスタマイズする変数テンプレート．
-`known_tuple<T>`が`true`となる型`T`に対して，{{ entity_link('tuple', '..') }}コンセプトは評価を短絡する．
+{{ 'yu::tuples::tuple' | link }}コンセプトの評価の動作をカスタマイズする変数テンプレート．
+`known_tuple<T>`が`true`となる型`T`に対して，{{ 'yu::tuples::tuple' | link }}コンセプトは評価を短絡する．
 
 * (1): `T`に対して`known_tuple<T>`が特殊化されていないとき，デフォルトではカスタマイズされない．
 * (2): 要素数の判明している配列型に対してカスタマイズするための部分特殊化．
 * (3)-(6): C++23で*tuple-like*だと規定されている型に対してカスタマイズするための部分特殊化
 
-{{ entity_link('tuple', '..') }}のモデルでない型に対する特殊化によってカスタマイズしたとき，プログラムの動作は保障されない．
+{{ 'yu::tuples::tuple' | link }}のモデルでない型に対する特殊化によってカスタマイズしたとき，プログラムの動作は保障されない．

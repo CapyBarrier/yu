@@ -1,5 +1,7 @@
 # `yu::tuples::element_type`
 
+{% include 'unstable.md' %}
+
 ```cpp
 namespace yu::tuples {
     template <std::size_t Idx, typename T>
@@ -17,8 +19,8 @@ namespace yu::tuples {
 
 ## 効果
 
-1. {{ code_in_link(entity_link('size', '..')+'<T>') }}が有効な式でなければ，メンバ型エイリアス`type`は定義されない．
-2. {{ code_in_link(entity_link('size', '..')+'<T>') }}でなければ，メンバ型エイリアス`type`は定義されない．
+1. {{ code('yu::tuples::size' | link, '<T>') }}が有効な式でなければ，メンバ型エイリアス`type`は定義されない．
+2. {{ code('yu::tuples::size' | link, '<T>') }}でなければ，メンバ型エイリアス`type`は定義されない．
 3. `std::remove_cvref_t<T>`が要素数の判明している配列型ならば，その配列の型をメンバ型エイリアス`type`として定義する．
 4. `std::tuple_element_t<Idx, std::remove_cvref_t<T>>`が有効な型であれば，`std::tuple_element_t<Idx, std::remove_cvref_t<T>>`をメンバ型エイリアス`type`として定義する．
 

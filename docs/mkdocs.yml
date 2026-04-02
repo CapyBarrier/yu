@@ -7,8 +7,9 @@ repo_name: CapyBarrier/yu
 
 validation:
   links:
-    absolute_links: ignore
-    unrecognized_links: ignore
+    absolute_links: relative_to_docs
+    anchors: ignore
+    not_found: ignore
 
 plugins:
   - search
@@ -16,7 +17,6 @@ plugins:
   - macros:
       include_dir: docs/assets/includes
       module_name: macros
-
 
 theme:
   name: material
