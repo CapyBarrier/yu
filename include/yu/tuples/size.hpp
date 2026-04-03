@@ -1,16 +1,15 @@
 #ifndef YU_TUPLES_SIZE_HPP_
 #define YU_TUPLES_SIZE_HPP_
 
+#include "_detail/bounded_array.hpp"
 #include <cstddef>
 #include <tuple>
 #include <type_traits>
 
+
 namespace yu::tuples {
 
 namespace _detail {
-
-template <typename T>
-concept bounded_array = std::is_bounded_array_v<std::remove_cvref_t<T>>;
 
 template <typename T>
 concept tuple_sized = requires {
