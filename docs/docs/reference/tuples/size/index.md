@@ -20,7 +20,7 @@ namespace yu::tuples {
 ## 効果
 
 1. `std::remove_cvref_t<T>`が要素数の判明している配列型ならば，その配列の要素数を静的メンバ定数`value`として定義する．
-2. `std::tuple_size_v<std::remove_cvref_t<T>>`が有効な式であれば，`std::tuple_size_v<std::remove_cvref_t<T>>`を静的メンバ定数`value`として定義する．
+2. `std::tuple_size<std::remove_cvref_t<T>>::value`が有効な式であれば，`std::tuple_size<std::remove_cvref_t<T>>::value`を静的メンバ定数`value`として定義する．
 
 以上のどれにも当てはまらないとき，静的メンバ定数`value`は定義されない．
 
