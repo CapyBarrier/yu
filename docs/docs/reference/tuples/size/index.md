@@ -1,7 +1,5 @@
 # `yu::tuples::size`
 
-{% include 'unstable.md' %}
-
 ```cpp
 namespace yu::tuples {
     template <typename T>
