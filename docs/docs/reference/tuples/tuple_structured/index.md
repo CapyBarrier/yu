@@ -5,7 +5,7 @@
 ```cpp
 namespace yu::tuples {
     template <typename T>
-    concept tuple_structured = see below;
+    concept tuple_structured = see_below;
 }
 ```
 

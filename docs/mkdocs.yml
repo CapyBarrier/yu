@@ -5,6 +5,9 @@ site_dir: ../build/docs/site
 repo_url: https://github.com/CapyBarrier/yu
 repo_name: CapyBarrier/yu
 
+extra_javascript:
+  - assets/javascripts/italicizeSpecialIdentifiers.js
+
 validation:
   links:
     absolute_links: relative_to_docs
