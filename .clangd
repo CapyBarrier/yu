@@ -1,0 +1,3 @@
+CompileFlags:
+  Add: [-std=c++23, -Wall, -Wextra, -pedantic, -Iinclude/]
+  Remove: [-fmodules-ts, -fmodule-mapper=tests\tuples\CMakeFiles\get.dir\get.cpp.obj.modmap, -fdeps-format=p1689r5]
