@@ -1,9 +1,26 @@
 cmake_minimum_required(VERSION 4.3.0)
-project(Yu CXX)
+project(yu CXX)
 
-set(CMAKE_CXX_COMPILER "clang++")
-set(CMAKE_CXX_FLAGS "-std=c++23 -Wall -Wextra")
+add_library(yu INTERFACE)
 
-add_subdirectory(docs/)
+target_include_directories(yu
+    INTERFACE
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
 
-add_subdirectory(tests/tuples)
+target_compile_features(yu
+    INTERFACE
+        cxx_std_23
+)
+
+target_compile_options(yu
+    INTERFACE
+        -Wall
+        -Wextra
+)
+
+enable_testing()
+
+add_subdirectory(docs)
+add_subdirectory(tests)
