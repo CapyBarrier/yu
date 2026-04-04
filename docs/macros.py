@@ -38,8 +38,8 @@ def define_env(env):
 
         return f"<code>{result_code}</code>"
 
-    @env.filter
-    def link(entity_fullname):
+    @env.macro
+    def linkof(entity_fullname):
         ns_splitted_entity_fullname = entity_fullname.split("::")
 
         entity_ns = None
@@ -53,3 +53,7 @@ def define_env(env):
         entity_path = Path(os.path.join("/yu/reference/", entity_ns, entity_name))
 
         return f"[`{entity_name}`]({entity_path})"
+
+    @env.filter
+    def link(entity_fullname):
+        return linkof(entity_fullname)
