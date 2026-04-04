@@ -42,15 +42,21 @@ def define_env(env):
     def linkof(entity_fullname):
         ns_splitted_entity_fullname = entity_fullname.split("::")
 
-        entity_ns = None
+        entity_fullname_without_yu = None
         if entity_fullname.startswith("yu::"):
-            entity_ns = ns_splitted_entity_fullname[1]
+            entity_fullname_without_yu = "/".join(ns_splitted_entity_fullname[1:])
         else:
-            entity_ns = ns_splitted_entity_fullname[0]
+            entity_fullname_without_yu = entity_fullname
 
         entity_name = ns_splitted_entity_fullname[-1]
 
-        entity_path = Path(os.path.join("/yu/reference/", entity_ns, entity_name))
+        entity_path = Path(
+            os.path.join(
+                "/yu/reference/",
+                entity_fullname_without_yu.replace("::", "/"),
+                "index.html",
+            )
+        )
 
         return f"[`{entity_name}`]({entity_path})"
 
