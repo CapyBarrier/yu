@@ -1,6 +1,5 @@
 # `yu::tuples::known_tuple`
 
-{% include 'unstable.md' %}
 
 ```cpp
 namespace yu::tuples {
