@@ -58,7 +58,7 @@ def define_env(env):
             )
         )
 
-        return f"[`{entity_name}`]({entity_path})"
+        return f"[`{entity_fullname}`]({entity_path})"
 
     @env.filter
     def link(entity_fullname):
