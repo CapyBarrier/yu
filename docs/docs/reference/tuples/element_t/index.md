@@ -1,4 +1,4 @@
-# `yu::tuples::element_type`
+# `yu::tuples::element_t`
 
 ```cpp
 namespace yu::tuples {
