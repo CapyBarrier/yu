@@ -1,5 +1,7 @@
 # `yu::tuples::is_applicable_r`
 
+{% include 'unimplemented.md' %}
+
 ```cpp
 namespace yu::tuples {
     template <typename R, typename F, typename T>
