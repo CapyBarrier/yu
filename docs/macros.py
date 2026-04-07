@@ -48,7 +48,7 @@ def define_env(env):
         else:
             entity_fullname_without_yu = entity_fullname
 
-        entity_name = ns_splitted_entity_fullname[-1]
+        entity_fullname_without_libname = "::".join(ns_splitted_entity_fullname[2:])
 
         entity_path = Path(
             os.path.join(
@@ -58,7 +58,7 @@ def define_env(env):
             )
         )
 
-        return f"[`{entity_fullname}`]({entity_path})"
+        return f"[`{entity_fullname_without_libname}`]({entity_path})"
 
     @env.filter
     def link(entity_fullname):
