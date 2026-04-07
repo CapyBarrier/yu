@@ -1,7 +1,6 @@
 #ifndef YU_TUPLES_TUPLE_STRUCTURED_HPP_
 #define YU_TUPLES_TUPLE_STRUCTURED_HPP_
 
-#include "_detail/sized.hpp"
 #include "get.hpp"
 #include "size.hpp"
 #include <concepts>
@@ -12,6 +11,12 @@ namespace yu::tuples {
 
 namespace _exposition {
 
+template <typename T>
+concept sized = requires {
+    typename tuples::size<std::remove_cvref_t<T>>;
+    tuples::size<std::remove_cvref_t<T>>::value;
+};
+
 template <typename T, std::size_t Idx>
 concept gettable = std::regular_invocable<decltype(tuples::get<Idx>), T&&>;
 
@@ -21,7 +26,7 @@ consteval bool all_gettable(std::index_sequence<Idx...>) {
 }
 
 template <typename T>
-concept tuple_structured_impl = _detail::sized<T> && all_gettable<T>(std::make_index_sequence<size_v<T>>{});
+concept tuple_structured_impl = sized<T> && all_gettable<T>(std::make_index_sequence<size_v<T>>{});
 
 } // namespace _exposition
 
