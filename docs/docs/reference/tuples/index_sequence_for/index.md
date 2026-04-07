@@ -32,7 +32,7 @@ void g(T&& tup) {
 
 
 int main() {
-  f(std::make_tuple(1, 'a', "Hello"));
+  g(std::make_tuple(1, 'a', "Hello"));
 }
 ```
 
