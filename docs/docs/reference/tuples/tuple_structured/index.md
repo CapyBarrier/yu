@@ -9,9 +9,9 @@ namespace yu::tuples {
 
 ## 概要
 
-``tuple_structured``は，{{ 'yu::tuples::tuple' | link }}のモデルとなる型を構文的に厳密に判定するコンセプトである．
+``tuple_structured``は，{{linkof('yu::tuples::tuple')}}のモデルとなる型を構文的に厳密に判定するコンセプトである．
 
 ## モデル
 
-ある型が``tuple_structured``のモデルであることは，{{ 'yu::tuples::tuple' | link }}のモデルであることと論理的に同値である．
-{{ 'yu::tuples::tuple' | link }}を参照すること．
+ある型が``tuple_structured``のモデルであることは，{{linkof('yu::tuples::tuple')}}のモデルであることと論理的に同値である．
+{{linkof('yu::tuples::tuple')}}を参照すること．
