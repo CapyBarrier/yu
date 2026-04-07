@@ -12,7 +12,7 @@ namespace yu::tuples {
 `regular_applicable`は，任意の関数呼び出し可能な型`F`に対して，型`T`の要素をTupleとして展開して，正則呼び出し可能であることを表すコンセプトである．
 ただし，このことは構文的には検証されず，純粋に意味論的な制約として存在する．
 
-`std::regular_invocable`をTupleに拡張したものである．
+`std::regular_invocable`の{{linkof('yu::tuples::apply')}}版である．
 
 ## 例
 

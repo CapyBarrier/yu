@@ -11,8 +11,6 @@ namespace yu::tuples {
 
 `nothrow_applicable`は，任意の関数呼び出し可能な型`F`に対して，型`T`の要素をTupleとして展開して呼び出し可能であり，かつその際に例外を送出しないことを表すコンセプトである．
 
-`std::is_nothrow_invocable`をTupleに拡張し，コンセプトにしたものである．
-
 ## 例
 
 ```cpp

@@ -13,7 +13,7 @@ namespace yu::tuples {
 
 `applicable`は，任意の関数呼び出し可能な型`F`に対して，型`T`の要素をTupleとして展開して呼び出し可能であることを表すコンセプトである．
 
-`std::invocable`をTupleに拡張したものである．
+`std::invocable`の{{linkof('yu::tuples::apply')}}版である．
 
 ## 例
 
