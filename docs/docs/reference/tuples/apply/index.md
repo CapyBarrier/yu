@@ -23,7 +23,7 @@ Tupleを展開し，関数の引数に適用してその関数を実行する．
 
 次のような関数があるとき，
 ```cpp
-template<class F, tuple T, std::size_t... Idx>
+template<typename F, tuple T, std::size_t... Idx>
 constexpr decltype(auto) apply_impl(F&& f, T&& t, std::index_sequence<Idx...>) {
   return std::invoke(std::forward<F>(f), tuples::get<Idx>(std::forward<T>(t))...);
 }
