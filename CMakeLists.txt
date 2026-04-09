@@ -9,6 +9,7 @@ target_include_directories(yu
         $<INSTALL_INTERFACE:include>
 )
 
+
 target_compile_features(yu
     INTERFACE
         cxx_std_23
@@ -24,3 +25,4 @@ enable_testing()
 
 add_subdirectory(docs)
 add_subdirectory(tests)
+add_subdirectory(tools/yukit)

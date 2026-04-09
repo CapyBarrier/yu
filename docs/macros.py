@@ -12,12 +12,13 @@ def define_env(env):
     - macro: a decorator function, to declare a macro.
     """
 
-    include_docs_path = os.path.join(env.project_dir, "docs")
+    INCLUDE_DOCS_PATH = os.path.join(env.project_dir, "docs")
+    INDEX_PATH = Path(".cache/yukit/index.json")
 
     @env.macro
     def include_file(path, start_line=0, end_line=None):
         normalized_path = path[1:] if path.startswith("/") else path
-        full_path = Path(os.path.join(include_docs_path, normalized_path))
+        full_path = Path(os.path.join(INCLUDE_DOCS_PATH, normalized_path))
 
         with open(full_path, "r", encoding="utf-8") as f:
             lines = f.readlines()
