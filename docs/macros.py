@@ -62,7 +62,7 @@ def define_env(env):
         entity_name = custom_name if custom_name else name(entity_id)
         entity_url = url(entity_id)
 
-        return f"[`{entity_name}`](\\{entity_url})"
+        return f"[`{entity_name}`]({entity_url})"
 
     @env.macro
     def ref_fullname(entity_id):
@@ -70,7 +70,7 @@ def define_env(env):
         entity_name = fullname(entity_id)
         entity_url = url(entity_id)
 
-        return f"[`{entity_name}`](\\{entity_url})"
+        return f"[`{entity_name}`]({entity_url})"
 
     @env.macro
     def entity_row_begin():
