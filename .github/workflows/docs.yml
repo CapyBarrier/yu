@@ -5,8 +5,10 @@ on:
     branches:
       - main
     paths:
-      - "docs/**"
       - ".github/workflows/docs.yml"
+      - "docs/**"
+      - "spec/**"
+      - "tools/**"
 
 permissions:
   contents: write
@@ -18,6 +20,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Build yukit
+        run: |
+          cmake -S . -B build
+          cmake --build build --target yukit
+
+      - name: Generate index.json
+        run: ./build/tools/yukit/yukit index
+
+      - name: Generate .pages of Yu.Tuples
+        run: ./build/tools/yukit/yukit docs pages tuples
 
       - name: Set up Python
         uses: actions/setup-python@v5

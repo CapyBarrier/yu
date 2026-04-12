@@ -1,0 +1,4 @@
+id: tuples.size
+name: size
+category: meta-fn
+status: stable

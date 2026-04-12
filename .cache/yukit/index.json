@@ -1,0 +1,146 @@
+{
+    "tuples.applicable": {
+        "lib": "tuples",
+        "name": "applicable",
+        "fullname": "yu::tuples::applicable",
+        "category": "concept",
+        "status": "unimplemented",
+        "url": "/yu/reference/tuples/applicable/index.html"
+    },
+    "tuples.apply": {
+        "lib": "tuples",
+        "name": "apply",
+        "fullname": "yu::tuples::apply",
+        "category": "niebloid",
+        "status": "unimplemented",
+        "url": "/yu/reference/tuples/apply/index.html"
+    },
+    "tuples.apply_result": {
+        "lib": "tuples",
+        "name": "apply_result",
+        "fullname": "yu::tuples::apply_result",
+        "category": "meta-fn",
+        "status": "unimplemented",
+        "url": "/yu/reference/tuples/apply_result/index.html"
+    },
+    "tuples.elementwise_invocable": {
+        "lib": "tuples",
+        "name": "elementwise_invocable",
+        "fullname": "yu::tuples::elementwise_invocable",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/elementwise_invocable/index.html"
+    },
+    "tuples.elementwise_predicate": {
+        "lib": "tuples",
+        "name": "elementwise_predicate",
+        "fullname": "yu::tuples::elementwise_predicate",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/elementwise_predicate/index.html"
+    },
+    "tuples.elementwise_regular_invocable": {
+        "lib": "tuples",
+        "name": "elementwise_regular_invocable",
+        "fullname": "yu::tuples::elementwise_regular_invocable",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/elementwise_regular_invocable/index.html"
+    },
+    "tuples.element_t": {
+        "lib": "tuples",
+        "name": "element_t",
+        "fullname": "yu::tuples::element_t",
+        "category": "meta-fn",
+        "status": "stable",
+        "url": "/yu/reference/tuples/element_t/index.html"
+    },
+    "tuples.get": {
+        "lib": "tuples",
+        "name": "get",
+        "fullname": "yu::tuples::get",
+        "category": "cpo",
+        "status": "stable",
+        "url": "/yu/reference/tuples/get/index.html"
+    },
+    "tuples.index_sequence_for": {
+        "lib": "tuples",
+        "name": "index_sequence_for",
+        "fullname": "yu::tuples::index_sequence_for",
+        "category": "meta-fn",
+        "status": "stable",
+        "url": "/yu/reference/tuples/index_sequence_for/index.html"
+    },
+    "tuples.is_applicable": {
+        "lib": "tuples",
+        "name": "is_applicable",
+        "fullname": "yu::tuples::is_applicable",
+        "category": "meta-fn",
+        "status": "unimplemented",
+        "url": "/yu/reference/tuples/is_applicable/index.html"
+    },
+    "tuples.is_applicable_r": {
+        "lib": "tuples",
+        "name": "is_applicable_r",
+        "fullname": "yu::tuples::is_applicable_r",
+        "category": "meta-fn",
+        "status": "unimplemented",
+        "url": "/yu/reference/tuples/is_applicable_r/index.html"
+    },
+    "tuples.is_nothrow_applicable": {
+        "lib": "tuples",
+        "name": "is_nothrow_applicable",
+        "fullname": "yu::tuples::is_nothrow_applicable",
+        "category": "meta-fn",
+        "status": "unimplemented",
+        "url": "/yu/reference/tuples/is_nothrow_applicable/index.html"
+    },
+    "tuples.is_nothrow_applicable_r": {
+        "lib": "tuples",
+        "name": "is_nothrow_applicable_r",
+        "fullname": "yu::tuples::is_nothrow_applicable_r",
+        "category": "meta-fn",
+        "status": "unimplemented",
+        "url": "/yu/reference/tuples/is_nothrow_applicable_r/index.html"
+    },
+    "tuples.known_tuple": {
+        "lib": "tuples",
+        "name": "known_tuple",
+        "fullname": "yu::tuples::known_tuple",
+        "category": "var-tmpl",
+        "status": "stable",
+        "url": "/yu/reference/tuples/known_tuple/index.html"
+    },
+    "tuples.regular_applicable": {
+        "lib": "tuples",
+        "name": "regular_applicable",
+        "fullname": "yu::tuples::regular_applicable",
+        "category": "concept",
+        "status": "unimplemented",
+        "url": "/yu/reference/tuples/regular_applicable/index.html"
+    },
+    "tuples.size": {
+        "lib": "tuples",
+        "name": "size",
+        "fullname": "yu::tuples::size",
+        "category": "meta-fn",
+        "status": "stable",
+        "url": "/yu/reference/tuples/size/index.html"
+    },
+    "tuples.tuple": {
+        "lib": "tuples",
+        "name": "tuple",
+        "fullname": "yu::tuples::tuple",
+        "category": "concept",
+        "status": "stable",
+        "url": "/yu/reference/tuples/tuple/index.html"
+    },
+    "tuples.tuple_structured": {
+        "lib": "tuples",
+        "name": "tuple_structured",
+        "fullname": "yu::tuples::tuple_structured",
+        "category": "concept",
+        "status": "stable",
+        "url": "/yu/reference/tuples/tuple_structured/index.html"
+    }
+}

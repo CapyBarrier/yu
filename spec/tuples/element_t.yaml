@@ -1,0 +1,4 @@
+id: tuples.element_t
+name: element_t
+category: meta-fn
+status: stable

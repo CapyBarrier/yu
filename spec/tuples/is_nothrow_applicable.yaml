@@ -1,0 +1,4 @@
+id: tuples.is_nothrow_applicable
+name: is_nothrow_applicable
+category: meta-fn
+status: unimplemented
