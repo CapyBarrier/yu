@@ -41,7 +41,7 @@ def define_env(env):
             "planned": "計画中",
             "unimplemented": "未実装",
             "unstable": "未確定",
-            "unstable": "安定済",
+            "stable": "安定済",
         }
 
         return status_map[status(entity_id)]
