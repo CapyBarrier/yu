@@ -25,7 +25,7 @@ def define_env(env):
 
     @env.macro
     def fullname(entity_id):
-        return INDEX_JSON[entity_id]["namespace"]
+        return INDEX_JSON[entity_id]["fullname"]
 
     @env.macro
     def category(entity_id):
