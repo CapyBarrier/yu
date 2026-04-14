@@ -3,11 +3,12 @@
 
 #include "known_tuple.hpp"
 #include "tuple_structured.hpp"
+#include <type_traits>
 
 namespace yu::tuples {
 
 template <typename T>
-concept tuple = known_tuple<T> || tuple_structured<T>;
+concept tuple = known_tuple<std::remove_cvref_t<T>> || tuple_structured<T>;
 
 } // namespace yu::tuples
 

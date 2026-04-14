@@ -21,13 +21,15 @@ concept tuple = known_tuple<std::remove_cvref_t<T>> || tuple_structured<T>;
 `decltype((t))`が`T&`であるような式`t`があるとする．
 `T`が`tuple`のモデルとなるのは，以下の条件をすべて満たす場合である．
 
-1. {{ code(ref('tuples.size'), '<T>') }}が有効な式であり，`T`のTupleとしての要素数を表す定数式である．
-2. `Idx`を，`0`以上{{ code(ref('tuples.size'), '<T>') }}未満を動く，`std::size_t`の定数式とする．それぞれの`Idx`に対して，以下の条件が成り立つ．
-    1. ，{{ code(ref('tuples.get'), '<Idx>(t)') }}は有効な式である．
-    2. それぞれの`Idx`に対して，{{ code(ref('tuples.get'), '<Idx>(t)') }}は，`T`のTupleとしての`Idx`番目の要素を返す．
-    3. それぞれの`Idx`に対して，{{ code(ref('tuples.get'), '<Idx>(t)') }}は等しさを保持する．
+1. {{ code(ref('tuples.size'), '_v<T>') }}が有効な式であり，`T`のTupleとしての要素数を表す定数式である．
+2. `Idx`を，`0`以上{{ code(ref('tuples.size'), '_v<T>') }}未満を動く，`std::size_t`の定数式とする．それぞれの`Idx`に対して，以下の条件が成り立つ．
+    1. {{ code(ref_fullname('tuples.get'), '<Idx>(t)') }}は有効な式である．
+    2. {{ code(ref_fullname('tuples.get'), '<Idx>(t)') }}は`t`に対して等しさを保持する．
+    3. {{ code(ref_fullname('tuples.get'), '<Idx>(t)') }}は`T`のTupleとしての`Idx`番目の要素を返す．
+    4. {{ code(ref_fullname('tuples.get'), '<Idx>(t)') }}は`t`の値カテゴリを保存して要素を返す．
+    5. {{ code(ref_fullname('tuples.get'), '<Idx>(t)') }}は，他の有効なインデックスでの呼び出し結果に影響しない．
 
-これらの条件のうち，構文的な検証はすべて{{ ref('tuples.tuple_structured') }}で行われる．
+これらの条件のうち，構文的な検証は{{ ref('tuples.tuple_structured') }}で行われる．
 
 
 ## 備考
