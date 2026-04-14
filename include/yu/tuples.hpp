@@ -19,6 +19,15 @@
 
 // Type traits
 
+// Observation traits
+#include <yu/tuples/is_applicable.hpp>
+#include <yu/tuples/is_applicable_r.hpp>
+#include <yu/tuples/is_nothrow_applicable.hpp>
+#include <yu/tuples/is_nothrow_applicable_r.hpp>
+
+// Transformation traits
+#include <yu/tuples/apply_result.hpp>
+
 // Utility
 #include <yu/tuples/index_sequence_for.hpp>
 
