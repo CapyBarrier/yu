@@ -79,7 +79,7 @@ int main() {
 
     // Test apply_result has specialization for tuple types only
     {
-        using result = yu::tuples::apply_result<add_op, int>;
+        using result [[maybe_unused]] = yu::tuples::apply_result<add_op, int>;
         // For non-tuple types, apply_result does not have a specialization and has no type member
         // This is correct behavior - apply_result is only specialized for tuple types
     }
