@@ -1,5 +1,5 @@
-#ifndef YU_TUPLES_INDES_SEQUENCE_FOR_HPP_
-#define YU_TUPLES_INDES_SEQUENCE_FOR_HPP_
+#ifndef YU_TUPLES_INDEX_SEQUENCE_FOR_HPP_
+#define YU_TUPLES_INDEX_SEQUENCE_FOR_HPP_
 
 #include "size.hpp"
 #include "tuple.hpp"
