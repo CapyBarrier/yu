@@ -4,9 +4,18 @@
 
 ```cpp
 namespace yu::tuples {
+    namespace unspecified {
+        template <std::size_t Idx>
+        struct unspecified {
+            template <typename T>
+            requires see_below
+            static constexpr decltype(auto) operator()(T&& t) noexcept(see_below);
+        }
+    }
+
     inline namespace unspecified {
         template <std::size_t Idx>
-        inline constexpr unspecified get = unspecified;
+        inline constexpr unspecified get{};
     }
 }
 ```
@@ -16,15 +25,21 @@ namespace yu::tuples {
 Tupleから指定した位置の要素を取得する関数オブジェクト．
 
 
+## 制約
+
+以下の少なくとも1つを満たすこと．
+- `std::remove_cvref_t<T>`が要素数の判明している配列型である．
+- `t.template get<Idx>()`が有効な式である．
+- `get<Idx>(t)`の`get`の意味がADLのみによって決まる文脈で，有効な式である．
+
 ## 効果
 
 部分式`expr`の型を`T`，`expr`を評価した値を`t`とする．
-このとき，式`yu::tuples::get<Idx>(expr)`の効果は以下の通りとなる．
+このとき，式`tuples::get<Idx>(expr)`の効果は以下の通りとなる．
 
-
-1. `std::remove_cvref_t<T>`が要素数の判明している配列型であれば，`t[Idx]`と等しい．
-2. `t.template get<Idx>()`が有効な式であれば，`t.template get<Idx>()`と等しい．
-3. `get<Idx>(t)`の`get`の意味がADLのみによって決まるコンテキストで，`get<Idx>(t)`が有効な式であれば，`get<Idx>(t)`と等しい．
+1. `std::remove_cvref_t<T>`が要素数の判明している配列型であれば，`t[Idx]`と等価．
+2. `t.template get<Idx>()`が有効な式であれば，`t.template get<Idx>()`と等価．
+3. `get<Idx>(t)`の`get`の意味がADLのみによって決まる文脈で，`get<Idx>(t)`が有効な式であれば，`get<Idx>(t)`と等価．
 
 以上のどれにも当てはまらないとき，呼び出しは不適格となる．
 
@@ -32,6 +47,11 @@ Tupleから指定した位置の要素を取得する関数オブジェクト．
 ## 戻り値
 
 Tupleオブジェクトの`Idx`番目の要素への参照．
+
+
+## 例外
+
+呼び出しが上記の制約を満たすとき，例外の有無は上記の効果で規定された等価な式と一致する．
 
 
 ## カスタマイゼーションポイント
