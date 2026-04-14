@@ -4,8 +4,16 @@
 
 ```cpp
 namespace yu::tuples {
-    template <typename F, tuple T>
-    constexpr apply_result_t<F, T> apply(F&& f, T&& t) noexcept(is_nothrow_applicable_v<F, T>);
+    namespace unspecified {
+        struct unspecified {
+            template <typename F, tuple T>
+            static constexpr apply_result_t<F, T> operator()(F&& f, T&& t) noexcept(is_nothrow_applicable_v<F, T>);
+        };
+    }
+
+    inline namespace unspecified {
+        inline constexpr unspecified apply{};
+    }
 }
 ```
 
@@ -13,9 +21,8 @@ namespace yu::tuples {
 
 Tupleを展開し，関数の引数に適用してその関数を実行する．
 
-この関数テンプレートは，ADLで発見されないように，実際は関数オブジェクトとして定義される．
 
-### 要件
+### 制約
 
 適用先の関数はCallableであること．
 
@@ -40,4 +47,4 @@ apply_impl(std::forward<F>(f), std::forward<T>(t), index_sequence_for<T>{});
 
 ### 例外
 
-例外指定は{{ code(ref('tuples.is_nothrow_applicable'), '<F, Tuple>') }}による．
+例外指定は{{ code(ref('tuples.is_nothrow_applicable'), '_v<F, Tuple>') }}による．
