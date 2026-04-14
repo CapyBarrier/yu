@@ -10,7 +10,7 @@ namespace yu::tuples {
             template <typename T>
             requires see_below
             static constexpr decltype(auto) operator()(T&& t) noexcept(see_below);
-        }
+        };
     }
 
     inline namespace unspecified {
