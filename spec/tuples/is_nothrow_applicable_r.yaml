@@ -1,4 +1,4 @@
 id: tuples.is_nothrow_applicable_r
 name: is_nothrow_applicable_r
 category: meta-fn
-status: unimplemented
+status: stable

@@ -1,4 +1,4 @@
 id: tuples.is_applicable
 name: is_applicable
 category: meta-fn
-status: unimplemented
+status: stable
