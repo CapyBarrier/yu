@@ -4,11 +4,11 @@
 
 ```cpp
 namespace yu::tuples {
-    template <typename F, typename T>
+    template <typename R, typename F, typename T>
     struct is_nothrow_applicable_r;
 
-    template <typename F, typename T>
-    inline constexpr bool is_nothrow_applicable_r_v = is_nothrow_applicable_r<F, T>::value;
+    template <typename R, typename F, typename T>
+    inline constexpr bool is_nothrow_applicable_r_v = is_nothrow_applicable_r<R, F, T>::value;
 }
 ```
 
