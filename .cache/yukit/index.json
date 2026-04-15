@@ -12,7 +12,7 @@
         "name": "apply",
         "fullname": "yu::tuples::apply",
         "category": "niebloid",
-        "status": "unimplemented",
+        "status": "stable",
         "url": "/yu/reference/tuples/apply/index.html"
     },
     "tuples.apply_result": { 
@@ -20,7 +20,7 @@
         "name": "apply_result",
         "fullname": "yu::tuples::apply_result",
         "category": "meta-fn",
-        "status": "unimplemented",
+        "status": "stable",
         "url": "/yu/reference/tuples/apply_result/index.html"
     },
     "tuples.elementwise_invocable": { 
@@ -28,7 +28,7 @@
         "name": "elementwise_invocable",
         "fullname": "yu::tuples::elementwise_invocable",
         "category": "concept",
-        "status": "planned",
+        "status": "unimplemented",
         "url": "/yu/reference/tuples/elementwise_invocable/index.html"
     },
     "tuples.elementwise_predicate": { 
@@ -36,7 +36,7 @@
         "name": "elementwise_predicate",
         "fullname": "yu::tuples::elementwise_predicate",
         "category": "concept",
-        "status": "planned",
+        "status": "unimplemented",
         "url": "/yu/reference/tuples/elementwise_predicate/index.html"
     },
     "tuples.elementwise_regular_invocable": { 
@@ -44,7 +44,7 @@
         "name": "elementwise_regular_invocable",
         "fullname": "yu::tuples::elementwise_regular_invocable",
         "category": "concept",
-        "status": "planned",
+        "status": "unimplemented",
         "url": "/yu/reference/tuples/elementwise_regular_invocable/index.html"
     },
     "tuples.element_t": { 

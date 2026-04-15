@@ -16,8 +16,8 @@ struct application_trait_base_impl<InvocationTrait, Tuple, std::index_sequence<I
     InvocationTrait<Args..., tuples::element_t<Idx, Tuple>...> {};
 
 template <template <typename...> typename InvocationTrait, typename Tuple, typename... Args>
-struct application_trait_base :
-    application_trait_base_impl<InvocationTrait, Tuple, tuples::index_sequence_for<Tuple>, Args...> {};
+using application_trait_base
+    = application_trait_base_impl<InvocationTrait, Tuple, tuples::index_sequence_for<Tuple>, Args...>;
 
 } // namespace yu::tuples::_detail
 
