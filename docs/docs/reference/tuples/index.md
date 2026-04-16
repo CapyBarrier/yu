@@ -78,3 +78,38 @@ C++標準ライブラリの`<ranges>`と`<algorithm>`が提供する操作を，
 
 
 
+## アルゴリズム
+
+Yu.Tuplesでは，標準ライブラリの`<algorithm>`がRangeに対して提供するものに対して，その対象をTupleへ写したアルゴリズムを提供する．
+ただし，TupleとRangeの性質の差異によって，提供されるアルゴリズムの有無やシグネチャの形は，`<algorithm>`のそれと必ずしも一致しない．
+例えば，Rangeは実行時にイテレータでアクセスできるが，Tupleへのアクセスではコンパイル時にインデックスが決定している必要があり，この制約によって提供されていないアルゴリズムが存在する．
+また，`<algorithm>`では結果を出力イテレータに出力するアルゴリズムが，Yu.Tuplesでは結果を戻り値として返すことがある．
+
+どのアルゴリズムも，意図せずADLで発見されてしまわないよう，関数オブジェクトとして定義される．
+
+これらのアルゴリズムは，型レベルで事前に結果を計算できるときは，実際の処理を省略することがある．
+
+### Tupleを変更しないアルゴリズム
+
+{{ entity_row_begin() }}
+{{ entity_row('tuples.all_of', '全ての要素が条件を満たしているか調べる') }}
+{{ entity_row('tuples.any_of', '少なくとも1つの要素が条件を満たしているか調べる') }}
+{{ entity_row('tuples.none_of', 'どの要素も条件を満たしていないか調べる') }}
+{{ entity_row('tuples.contains', '指定された要素を含むことを調べる') }}
+{{ entity_row('tuples.contains_slice', '指定されたTupleを含むことを調べる') }}
+{{ entity_row('tuples.for_each', '全ての要素に対して処理を行う') }}
+{{ entity_row('tuples.for_each_n', '最初のN個の要素に対して処理を行う') }}
+{{ entity_row('tuples.count', '指定された値と等しい要素を数える') }}
+{{ entity_row('tuples.count_if', '指定された条件を満たす要素を数える') }}
+{{ entity_row('tuples.equal', '2つのTupleを等値比較する') }}
+{{ entity_row('tuples.starts_with', '先頭が指定されたTupleと一致するか調べる') }}
+{{ entity_row('tuples.ends_with', '末尾が指定されたTupleと一致するか調べる') }}
+
+
+### Tupleの要素を畳み込むアルゴリズム
+
+{{ entity_row_begin() }}
+{{ entity_row('tuples.fold_left', '左（先頭）からの畳み込み') }}
+{{ entity_row('tuples.fold_right', '右（終端）からの畳み込み') }}
+{{ entity_row('tuples.fold_left_first', '左（先頭）からの畳み込み．初期値を省略する') }}
+{{ entity_row('tuples.fold_right_last', '右（終端）からの畳み込み．初期値を省略する') }}

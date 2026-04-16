@@ -1,4 +1,20 @@
 {
+    "tuples.all_of": { 
+        "lib": "tuples",
+        "name": "all_of",
+        "fullname": "yu::tuples::all_of",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/all_of/index.html"
+    },
+    "tuples.any_of": { 
+        "lib": "tuples",
+        "name": "any_of",
+        "fullname": "yu::tuples::any_of",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/any_of/index.html"
+    },
     "tuples.applicable": { 
         "lib": "tuples",
         "name": "applicable",
@@ -23,6 +39,38 @@
         "status": "stable",
         "url": "/yu/reference/tuples/apply_result/index.html"
     },
+    "tuples.contains": { 
+        "lib": "tuples",
+        "name": "contains",
+        "fullname": "yu::tuples::contains",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/contains/index.html"
+    },
+    "tuples.contains_slice": { 
+        "lib": "tuples",
+        "name": "contains_slice",
+        "fullname": "yu::tuples::contains_slice",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/contains_slice/index.html"
+    },
+    "tuples.count": { 
+        "lib": "tuples",
+        "name": "count",
+        "fullname": "yu::tuples::count",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/count/index.html"
+    },
+    "tuples.count_if": { 
+        "lib": "tuples",
+        "name": "count_if",
+        "fullname": "yu::tuples::count_if",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/count_if/index.html"
+    },
     "tuples.elementwise_unary_invocable": { 
         "lib": "tuples",
         "name": "elementwise_unary_invocable",
@@ -46,6 +94,70 @@
         "category": "meta-fn",
         "status": "stable",
         "url": "/yu/reference/tuples/element_t/index.html"
+    },
+    "tuples.ends_with": { 
+        "lib": "tuples",
+        "name": "ends_with",
+        "fullname": "yu::tuples::ends_with",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/ends_with/index.html"
+    },
+    "tuples.equal": { 
+        "lib": "tuples",
+        "name": "equal",
+        "fullname": "yu::tuples::equal",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/equal/index.html"
+    },
+    "tuples.fold_left": { 
+        "lib": "tuples",
+        "name": "fold_left",
+        "fullname": "yu::tuples::fold_left",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/fold_left/index.html"
+    },
+    "tuples.fold_left_first": { 
+        "lib": "tuples",
+        "name": "fold_left_first",
+        "fullname": "yu::tuples::fold_left_first",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/fold_left_first/index.html"
+    },
+    "tuples.fold_right": { 
+        "lib": "tuples",
+        "name": "fold_right",
+        "fullname": "yu::tuples::fold_right",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/fold_right/index.html"
+    },
+    "tuples.fold_right_last": { 
+        "lib": "tuples",
+        "name": "fold_right_last",
+        "fullname": "yu::tuples::fold_right_last",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/fold_right_last/index.html"
+    },
+    "tuples.for_each": { 
+        "lib": "tuples",
+        "name": "for_each",
+        "fullname": "yu::tuples::for_each",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/for_each/index.html"
+    },
+    "tuples.for_each_n": { 
+        "lib": "tuples",
+        "name": "for_each_n",
+        "fullname": "yu::tuples::for_each_n",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/for_each_n/index.html"
     },
     "tuples.get": { 
         "lib": "tuples",
@@ -103,12 +215,20 @@
         "status": "stable",
         "url": "/yu/reference/tuples/known_tuple/index.html"
     },
+    "tuples.none_of": { 
+        "lib": "tuples",
+        "name": "none_of",
+        "fullname": "yu::tuples::none_of",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/none_of/index.html"
+    },
     "tuples.regular_applicable": { 
         "lib": "tuples",
         "name": "regular_applicable",
         "fullname": "yu::tuples::regular_applicable",
         "category": "concept",
-        "status": "unstable",
+        "status": "stable",
         "url": "/yu/reference/tuples/regular_applicable/index.html"
     },
     "tuples.size": { 
@@ -118,6 +238,14 @@
         "category": "meta-fn",
         "status": "stable",
         "url": "/yu/reference/tuples/size/index.html"
+    },
+    "tuples.starts_with": { 
+        "lib": "tuples",
+        "name": "starts_with",
+        "fullname": "yu::tuples::starts_with",
+        "category": "fn-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/starts_with/index.html"
     },
     "tuples.tuple": { 
         "lib": "tuples",

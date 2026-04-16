@@ -2,12 +2,26 @@ title: Yu.Tuples
 
 nav:
   - index.md
+  - all_of: reference/tuples/all_of/index.html
+  - any_of: reference/tuples/any_of/index.html
   - applicable: reference/tuples/applicable/index.html
   - apply: reference/tuples/apply/index.html
   - apply_result: reference/tuples/apply_result/index.html
+  - contains: reference/tuples/contains/index.html
+  - contains_slice: reference/tuples/contains_slice/index.html
+  - count: reference/tuples/count/index.html
+  - count_if: reference/tuples/count_if/index.html
   - element_t: reference/tuples/element_t/index.html
   - elementwise_unary_invocable: reference/tuples/elementwise_unary_invocable/index.html
   - elementwise_unary_predicate: reference/tuples/elementwise_unary_predicate/index.html
+  - ends_with: reference/tuples/ends_with/index.html
+  - equal: reference/tuples/equal/index.html
+  - fold_left: reference/tuples/fold_left/index.html
+  - fold_left_first: reference/tuples/fold_left_first/index.html
+  - fold_right: reference/tuples/fold_right/index.html
+  - fold_right_last: reference/tuples/fold_right_last/index.html
+  - for_each: reference/tuples/for_each/index.html
+  - for_each_n: reference/tuples/for_each_n/index.html
   - get: reference/tuples/get/index.html
   - index: reference/tuples/index/index.html
   - index_sequence_for: reference/tuples/index_sequence_for/index.html
@@ -16,7 +30,9 @@ nav:
   - is_nothrow_applicable: reference/tuples/is_nothrow_applicable/index.html
   - is_nothrow_applicable_r: reference/tuples/is_nothrow_applicable_r/index.html
   - known_tuple: reference/tuples/known_tuple/index.html
+  - none_of: reference/tuples/none_of/index.html
   - regular_applicable: reference/tuples/regular_applicable/index.html
   - size: reference/tuples/size/index.html
+  - starts_with: reference/tuples/starts_with/index.html
   - tuple: reference/tuples/tuple/index.html
   - tuple_structured: reference/tuples/tuple_structured/index.html
