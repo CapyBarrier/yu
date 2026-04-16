@@ -50,7 +50,7 @@ int new_cmd(int argc, char* argv[]) {
             "alias",
             "alias-tmpl",
             "cpo",
-            "niebloid",
+            "fn-obj",
             "meta-fn",
         };
 

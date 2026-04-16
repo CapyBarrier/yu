@@ -1,4 +1,4 @@
-#include <yu/tuples/elementwise_predicate.hpp>
+#include <yu/tuples/elementwise_unary_predicate.hpp>
 #include <tuple>
 #include <string>
 
@@ -20,11 +20,11 @@ struct non_predicate {
 int main() {
     using T = std::tuple<int, double, std::string>;
 
-    static_assert(yu::tuples::elementwise_predicate<predicate, T>);
-    static_assert(!yu::tuples::elementwise_predicate<incomplete_predicate, T>);
+    static_assert(yu::tuples::elementwise_unary_predicate<predicate, T>);
+    static_assert(!yu::tuples::elementwise_unary_predicate<incomplete_predicate, T>);
 
     using U = std::tuple<int, int, int>;
-    static_assert(!yu::tuples::elementwise_predicate<non_predicate, U>);
+    static_assert(!yu::tuples::elementwise_unary_predicate<non_predicate, U>);
 
     return 0;
 }

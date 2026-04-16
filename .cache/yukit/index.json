@@ -4,14 +4,14 @@
         "name": "applicable",
         "fullname": "yu::tuples::applicable",
         "category": "concept",
-        "status": "unimplemented",
+        "status": "unstable",
         "url": "/yu/reference/tuples/applicable/index.html"
     },
     "tuples.apply": { 
         "lib": "tuples",
         "name": "apply",
         "fullname": "yu::tuples::apply",
-        "category": "niebloid",
+        "category": "fn-obj",
         "status": "stable",
         "url": "/yu/reference/tuples/apply/index.html"
     },
@@ -23,29 +23,21 @@
         "status": "stable",
         "url": "/yu/reference/tuples/apply_result/index.html"
     },
-    "tuples.elementwise_invocable": { 
+    "tuples.elementwise_unary_invocable": { 
         "lib": "tuples",
-        "name": "elementwise_invocable",
-        "fullname": "yu::tuples::elementwise_invocable",
+        "name": "elementwise_unary_invocable",
+        "fullname": "yu::tuples::elementwise_unary_invocable",
         "category": "concept",
-        "status": "unimplemented",
-        "url": "/yu/reference/tuples/elementwise_invocable/index.html"
+        "status": "stable",
+        "url": "/yu/reference/tuples/elementwise_unary_invocable/index.html"
     },
-    "tuples.elementwise_predicate": { 
+    "tuples.elementwise_unary_predicate": { 
         "lib": "tuples",
-        "name": "elementwise_predicate",
-        "fullname": "yu::tuples::elementwise_predicate",
+        "name": "elementwise_unary_predicate",
+        "fullname": "yu::tuples::elementwise_unary_predicate",
         "category": "concept",
-        "status": "unimplemented",
-        "url": "/yu/reference/tuples/elementwise_predicate/index.html"
-    },
-    "tuples.elementwise_regular_invocable": { 
-        "lib": "tuples",
-        "name": "elementwise_regular_invocable",
-        "fullname": "yu::tuples::elementwise_regular_invocable",
-        "category": "concept",
-        "status": "unimplemented",
-        "url": "/yu/reference/tuples/elementwise_regular_invocable/index.html"
+        "status": "stable",
+        "url": "/yu/reference/tuples/elementwise_unary_predicate/index.html"
     },
     "tuples.element_t": { 
         "lib": "tuples",
@@ -116,7 +108,7 @@
         "name": "regular_applicable",
         "fullname": "yu::tuples::regular_applicable",
         "category": "concept",
-        "status": "unimplemented",
+        "status": "unstable",
         "url": "/yu/reference/tuples/regular_applicable/index.html"
     },
     "tuples.size": { 

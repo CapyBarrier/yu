@@ -6,9 +6,8 @@ nav:
   - apply: reference/tuples/apply/index.html
   - apply_result: reference/tuples/apply_result/index.html
   - element_t: reference/tuples/element_t/index.html
-  - elementwise_invocable: reference/tuples/elementwise_invocable/index.html
-  - elementwise_predicate: reference/tuples/elementwise_predicate/index.html
-  - elementwise_regular_invocable: reference/tuples/elementwise_regular_invocable/index.html
+  - elementwise_unary_invocable: reference/tuples/elementwise_unary_invocable/index.html
+  - elementwise_unary_predicate: reference/tuples/elementwise_unary_predicate/index.html
   - get: reference/tuples/get/index.html
   - index: reference/tuples/index/index.html
   - index_sequence_for: reference/tuples/index_sequence_for/index.html

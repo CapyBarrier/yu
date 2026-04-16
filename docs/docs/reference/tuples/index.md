@@ -73,9 +73,8 @@ C++標準ライブラリの`<ranges>`と`<algorithm>`が提供する操作を，
 ### Tupleの各要素に対する制約
 
 {{ entity_row_begin() }}
-{{ entity_row('tuples.elementwise_invocable', '各要素に対して呼び出しが可能') }}
-{{ entity_row('tuples.elementwise_regular_invocable', '各要素に対して正則に呼び出しが可能') }}
-{{ entity_row('tuples.elementwise_predicate', '各要素に対する述語') }}
+{{ entity_row('tuples.elementwise_unary_invocable', '各要素に対して呼び出しが可能') }}
+{{ entity_row('tuples.elementwise_unary_predicate', '各要素に対する述語') }}
 
 
 
