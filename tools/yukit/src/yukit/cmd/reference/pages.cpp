@@ -1,11 +1,14 @@
 #include "yukit/util/sublib_exists.hpp"
 #include <yukit/cmd/reference/pages.hpp>
 #include <yukit/util/get_root.hpp>
+#include <algorithm>
 #include <filesystem>
+#include <format>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
+
 
 namespace yukit::cmd::reference {
 
