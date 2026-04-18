@@ -1,0 +1,4 @@
+name: yu::tuples::index_sequence_for
+sublib: tuples
+category: metafn-type
+status: planned

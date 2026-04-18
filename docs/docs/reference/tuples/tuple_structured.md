@@ -1,6 +1,6 @@
 # `yu::tuples::tuple_structured`
 
-{{ status_mark('tuples.tuple_structured') }}
+{{ status_mark('yu::tuples::tuple_structured') }}
 
 ```cpp
 namespace yu::tuples {
@@ -11,9 +11,9 @@ namespace yu::tuples {
 
 ## 概要
 
-``tuple_structured``は，{{ ref('tuples.tuple') }}のモデルとなる型を構文的に厳密に判定するコンセプトである．
+``tuple_structured``は，{{ ref('yu::tuples::tuple') }}のモデルとなる型を構文的に厳密に判定するコンセプトである．
 
 ## モデル
 
-ある型が``tuple_structured``のモデルであることは，{{ ref('tuples.tuple') }}のモデルであることと論理的に同値である．
-{{ ref('tuples.tuple') }}を参照すること．
+ある型が``tuple_structured``のモデルであることは，{{ ref('yu::tuples::tuple') }}のモデルであることと論理的に同値である．
+{{ ref('yu::tuples::tuple') }}を参照すること．

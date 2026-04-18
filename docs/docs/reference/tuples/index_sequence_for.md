@@ -1,6 +1,6 @@
 # `yu::tuples::index_sequence_for`
 
-{{ status_mark('tuples.index_sequence_for') }}
+{{ status_mark('yu::tuples::index_sequence_for') }}
 
 ```cpp
 namespace yu::tuples {
@@ -11,7 +11,7 @@ namespace yu::tuples {
 
 ## 概要
 
-`index_sequence_for`は，{{ ref('tuples.tuple') }}をインデックス展開するための`std::index_sequence`を生成する型エイリアステンプレートである．
+`index_sequence_for`は，{{ ref('yu::tuples::tuple') }}をインデックス展開するための`std::index_sequence`を生成する型エイリアステンプレートである．
 
 ## 例
 

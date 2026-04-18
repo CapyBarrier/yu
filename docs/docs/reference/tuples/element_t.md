@@ -1,6 +1,6 @@
 # `yu::tuples::element_t`
 
-{{ status_mark('tuples.element_t') }}
+{{ status_mark('yu::tuples::element_t') }}
 
 ```cpp
 namespace yu::tuples {

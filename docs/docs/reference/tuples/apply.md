@@ -1,6 +1,6 @@
 # `yu::tuples::apply`
 
-{{ status_mark('tuples.apply') }}
+{{ status_mark('yu::tuples::apply') }}
 
 ```cpp
 namespace yu::tuples {
@@ -47,4 +47,4 @@ apply_impl(std::forward<F>(f), std::forward<T>(t), index_sequence_for<T>{});
 
 ### 例外
 
-例外指定は{{ code(ref('tuples.is_nothrow_applicable'), '_v<F, Tuple>') }}による．
+例外指定は{{ ref('yu::tuples::is_nothrow_applicable_v<F, Tuple>') }}による．

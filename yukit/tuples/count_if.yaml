@@ -1,0 +1,4 @@
+name: yu::tuples::count_if
+sublib: tuples
+category: function-obj
+status: planned

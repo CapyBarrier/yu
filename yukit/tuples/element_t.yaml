@@ -1,0 +1,4 @@
+name: yu::tuples::element_t
+sublib: tuples
+category: alias-tmpl
+status: planned

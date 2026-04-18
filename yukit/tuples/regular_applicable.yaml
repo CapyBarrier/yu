@@ -1,0 +1,4 @@
+name: yu::tuples::regular_applicable
+sublib: tuples
+category: concept
+status: planned

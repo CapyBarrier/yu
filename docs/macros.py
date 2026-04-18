@@ -12,43 +12,60 @@ def define_env(env):
     MKDOCS_ROOT_PATH = os.path.join(REPO_ROOT_PATH, "docs")
     DOCS_PATH = os.path.join(MKDOCS_ROOT_PATH, "docs")
     INCLUDE_PATH = os.path.join(DOCS_PATH, "assets/includes")
-    INDEX_PATH = os.path.join(REPO_ROOT_PATH, ".cache/yukit/index.json")
+    INDEX_PATH = os.path.join(REPO_ROOT_PATH, "yukit/index.json")
     INDEX_JSON = json.load(open(INDEX_PATH, "r"))
 
-    @env.macro
-    def name(entity_id):
-        return INDEX_JSON[entity_id]["name"]
+    def entity_exists(entity_name):
+        return entity_name in INDEX_JSON
+
+    def normalize_entity_name(entity_name):
+        return re.sub(r"[<(].*", "", entity_name)
 
     @env.macro
-    def url(entity_id):
-        return Path(INDEX_JSON[entity_id]["url"])
+    def fullname(entity_name):
+        return INDEX_JSON[entity_name]["fullname"]
 
     @env.macro
-    def fullname(entity_id):
-        return INDEX_JSON[entity_id]["fullname"]
+    def qualified_name(entity_name):
+        return INDEX_JSON[entity_name]["qualified_name"]
 
     @env.macro
-    def category(entity_id):
-        return INDEX_JSON[entity_id]["category"]
+    def identifier(entity_name):
+        return INDEX_JSON[entity_name]["identifier"]
 
     @env.macro
-    def status(entity_id):
-        return INDEX_JSON[entity_id]["status"]
+    def namespace(entity_name):
+        return INDEX_JSON[entity_name]["namespace"]
 
     @env.macro
-    def status_name(entity_id):
+    def alias(entity_name):
+        return INDEX_JSON[entity_name]["alias"]
+
+    @env.macro
+    def category(entity_name):
+        return INDEX_JSON[entity_name]["category" ""]
+
+    @env.macro
+    def status(entity_name):
+        return INDEX_JSON[entity_name]["status"]
+
+    @env.macro
+    def url(entity_name):
+        return Path(INDEX_JSON[entity_name]["url"])
+
+    @env.macro
+    def status_name(entity_name):
         status_map = {
             "planned": "計画中",
             "unimplemented": "未実装",
             "unstable": "未確定",
             "stable": "安定",
         }
-
-        return status_map[status(entity_id)]
+        return status_map[status(entity_name)]
 
     @env.macro
-    def status_mark(entity_id):
-        entity_status = status(entity_id)
+    def status_mark(entity_name):
+        entity_status = status(entity_name)
 
         status_path = os.path.join(INCLUDE_PATH, f"{entity_status}.md")
 
@@ -57,29 +74,26 @@ def define_env(env):
         return "".join(lines)
 
     @env.macro
-    def ref(entity_id, custom_name=""):
+    def ref(entity_name, style=identifier):
+        original_name = entity_name
+        normalized_name = normalize_entity_name(original_name)
 
-        entity_name = custom_name if custom_name else name(entity_id)
-        entity_url = url(entity_id)
+        suffix = original_name[len(normalized_name) :]
 
-        return f"[`{entity_name}`]({entity_url})"
+        entity_url = url(normalized_name)
 
-    @env.macro
-    def ref_fullname(entity_id):
+        styled_name = style(normalized_name) + suffix
 
-        entity_name = fullname(entity_id)
-        entity_url = url(entity_id)
-
-        return f"[`{entity_name}`]({entity_url})"
+        return f"[`{styled_name}`]({entity_url})"
 
     @env.macro
     def entity_row_begin():
         return "| 名前 | 説明 | バージョン | 状態 |\n| - | - | - | - |"
 
     @env.macro
-    def entity_row(entity_id, description, version="-"):
-        entity_ref = ref(entity_id)
-        entity_status = status_name(entity_id)
+    def entity_row(entity_name, description, version="-"):
+        entity_ref = ref(entity_name)
+        entity_status = status_name(entity_name)
 
         return f"|{entity_ref} | {description} | {version} | {entity_status}|"
 
@@ -91,17 +105,3 @@ def define_env(env):
             lines = f.readlines()
         line_range = lines[start_line:end_line]
         return "".join(line_range)
-
-    @env.macro
-    def code(*args):
-        def parse_links(code):
-            link_pattern = r"\[(.*?)\]\((.*?)\)"
-
-            return re.sub(link_pattern, r'<a href="\2">\1</a>', html.escape(code))
-
-        def parse(code):
-            return parse_links(code)
-
-        result_code = "".join(parse(code) for code in args)
-
-        return f"<code>{result_code}</code>"

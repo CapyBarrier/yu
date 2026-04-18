@@ -1,0 +1,402 @@
+{
+    "yu::tuples::all_of": {
+        "fullname": "yu::tuples::all_of",
+        "qualified_name": "tuples::all_of",
+        "identifier": "all_of",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/all_of/index.html"
+    },
+    "yu::tuples::any_of": {
+        "fullname": "yu::tuples::any_of",
+        "qualified_name": "tuples::any_of",
+        "identifier": "any_of",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/any_of/index.html"
+    },
+    "yu::tuples::applicable": {
+        "fullname": "yu::tuples::applicable",
+        "qualified_name": "tuples::applicable",
+        "identifier": "applicable",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/applicable/index.html"
+    },
+    "yu::tuples::apply": {
+        "fullname": "yu::tuples::apply",
+        "qualified_name": "tuples::apply",
+        "identifier": "apply",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/apply/index.html"
+    },
+    "yu::tuples::apply_result": {
+        "fullname": "yu::tuples::apply_result",
+        "qualified_name": "tuples::apply_result",
+        "identifier": "apply_result",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "metafn-type",
+        "status": "planned",
+        "url": "/yu/reference/tuples/apply_result/index.html"
+    },
+    "yu::tuples::apply_result_t": {
+        "fullname": "yu::tuples::apply_result_t",
+        "qualified_name": "tuples::apply_result_t",
+        "identifier": "apply_result_t",
+        "namespace": "yu::tuples",
+        "alias": "yu::tuples::apply_result",
+        "category": "metafn-type",
+        "status": "planned",
+        "url": "/yu/reference/tuples/apply_result/index.html"
+    },
+    "yu::tuples::contains": {
+        "fullname": "yu::tuples::contains",
+        "qualified_name": "tuples::contains",
+        "identifier": "contains",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/contains/index.html"
+    },
+    "yu::tuples::contains_slice": {
+        "fullname": "yu::tuples::contains_slice",
+        "qualified_name": "tuples::contains_slice",
+        "identifier": "contains_slice",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/contains_slice/index.html"
+    },
+    "yu::tuples::count": {
+        "fullname": "yu::tuples::count",
+        "qualified_name": "tuples::count",
+        "identifier": "count",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/count/index.html"
+    },
+    "yu::tuples::count_if": {
+        "fullname": "yu::tuples::count_if",
+        "qualified_name": "tuples::count_if",
+        "identifier": "count_if",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/count_if/index.html"
+    },
+    "yu::tuples::elementwise_unary_invocable": {
+        "fullname": "yu::tuples::elementwise_unary_invocable",
+        "qualified_name": "tuples::elementwise_unary_invocable",
+        "identifier": "elementwise_unary_invocable",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/elementwise_unary_invocable/index.html"
+    },
+    "yu::tuples::elementwise_unary_predicate": {
+        "fullname": "yu::tuples::elementwise_unary_predicate",
+        "qualified_name": "tuples::elementwise_unary_predicate",
+        "identifier": "elementwise_unary_predicate",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/elementwise_unary_predicate/index.html"
+    },
+    "yu::tuples::elementwise_unary_regular_invocable": {
+        "fullname": "yu::tuples::elementwise_unary_regular_invocable",
+        "qualified_name": "tuples::elementwise_unary_regular_invocable",
+        "identifier": "elementwise_unary_regular_invocable",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/elementwise_unary_regular_invocable/index.html"
+    },
+    "yu::tuples::element_t": {
+        "fullname": "yu::tuples::element_t",
+        "qualified_name": "tuples::element_t",
+        "identifier": "element_t",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "alias-tmpl",
+        "status": "planned",
+        "url": "/yu/reference/tuples/element_t/index.html"
+    },
+    "yu::tuples::ends_with": {
+        "fullname": "yu::tuples::ends_with",
+        "qualified_name": "tuples::ends_with",
+        "identifier": "ends_with",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/ends_with/index.html"
+    },
+    "yu::tuples::equal": {
+        "fullname": "yu::tuples::equal",
+        "qualified_name": "tuples::equal",
+        "identifier": "equal",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/equal/index.html"
+    },
+    "yu::tuples::fold_left": {
+        "fullname": "yu::tuples::fold_left",
+        "qualified_name": "tuples::fold_left",
+        "identifier": "fold_left",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/fold_left/index.html"
+    },
+    "yu::tuples::fold_left_first": {
+        "fullname": "yu::tuples::fold_left_first",
+        "qualified_name": "tuples::fold_left_first",
+        "identifier": "fold_left_first",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/fold_left_first/index.html"
+    },
+    "yu::tuples::fold_right": {
+        "fullname": "yu::tuples::fold_right",
+        "qualified_name": "tuples::fold_right",
+        "identifier": "fold_right",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/fold_right/index.html"
+    },
+    "yu::tuples::fold_right_last": {
+        "fullname": "yu::tuples::fold_right_last",
+        "qualified_name": "tuples::fold_right_last",
+        "identifier": "fold_right_last",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/fold_right_last/index.html"
+    },
+    "yu::tuples::for_each": {
+        "fullname": "yu::tuples::for_each",
+        "qualified_name": "tuples::for_each",
+        "identifier": "for_each",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/for_each/index.html"
+    },
+    "yu::tuples::for_each_n": {
+        "fullname": "yu::tuples::for_each_n",
+        "qualified_name": "tuples::for_each_n",
+        "identifier": "for_each_n",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/for_each_n/index.html"
+    },
+    "yu::tuples::get": {
+        "fullname": "yu::tuples::get",
+        "qualified_name": "tuples::get",
+        "identifier": "get",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "cpo",
+        "status": "planned",
+        "url": "/yu/reference/tuples/get/index.html"
+    },
+    "yu::tuples::index_sequence_for": {
+        "fullname": "yu::tuples::index_sequence_for",
+        "qualified_name": "tuples::index_sequence_for",
+        "identifier": "index_sequence_for",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "metafn-type",
+        "status": "planned",
+        "url": "/yu/reference/tuples/index_sequence_for/index.html"
+    },
+    "yu::tuples::is_applicable": {
+        "fullname": "yu::tuples::is_applicable",
+        "qualified_name": "tuples::is_applicable",
+        "identifier": "is_applicable",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/is_applicable/index.html"
+    },
+    "yu::tuples::is_applicable_r": {
+        "fullname": "yu::tuples::is_applicable_r",
+        "qualified_name": "tuples::is_applicable_r",
+        "identifier": "is_applicable_r",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/is_applicable_r/index.html"
+    },
+    "yu::tuples::is_applicable_r_v": {
+        "fullname": "yu::tuples::is_applicable_r_v",
+        "qualified_name": "tuples::is_applicable_r_v",
+        "identifier": "is_applicable_r_v",
+        "namespace": "yu::tuples",
+        "alias": "yu::tuples::is_applicable_r",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/is_applicable_r/index.html"
+    },
+    "yu::tuples::is_applicable_v": {
+        "fullname": "yu::tuples::is_applicable_v",
+        "qualified_name": "tuples::is_applicable_v",
+        "identifier": "is_applicable_v",
+        "namespace": "yu::tuples",
+        "alias": "yu::tuples::is_applicable",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/is_applicable/index.html"
+    },
+    "yu::tuples::is_nothrow_applicable": {
+        "fullname": "yu::tuples::is_nothrow_applicable",
+        "qualified_name": "tuples::is_nothrow_applicable",
+        "identifier": "is_nothrow_applicable",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/is_nothrow_applicable/index.html"
+    },
+    "yu::tuples::is_nothrow_applicable_r": {
+        "fullname": "yu::tuples::is_nothrow_applicable_r",
+        "qualified_name": "tuples::is_nothrow_applicable_r",
+        "identifier": "is_nothrow_applicable_r",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/is_nothrow_applicable_r/index.html"
+    },
+    "yu::tuples::is_nothrow_applicable_r_v": {
+        "fullname": "yu::tuples::is_nothrow_applicable_r_v",
+        "qualified_name": "tuples::is_nothrow_applicable_r_v",
+        "identifier": "is_nothrow_applicable_r_v",
+        "namespace": "yu::tuples",
+        "alias": "yu::tuples::is_nothrow_applicable_r",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/is_nothrow_applicable_r/index.html"
+    },
+    "yu::tuples::is_nothrow_applicable_v": {
+        "fullname": "yu::tuples::is_nothrow_applicable_v",
+        "qualified_name": "tuples::is_nothrow_applicable_v",
+        "identifier": "is_nothrow_applicable_v",
+        "namespace": "yu::tuples",
+        "alias": "yu::tuples::is_nothrow_applicable",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/is_nothrow_applicable/index.html"
+    },
+    "yu::tuples::known_tuple": {
+        "fullname": "yu::tuples::known_tuple",
+        "qualified_name": "tuples::known_tuple",
+        "identifier": "known_tuple",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "variable-tmpl",
+        "status": "planned",
+        "url": "/yu/reference/tuples/known_tuple/index.html"
+    },
+    "yu::tuples::none_of": {
+        "fullname": "yu::tuples::none_of",
+        "qualified_name": "tuples::none_of",
+        "identifier": "none_of",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/none_of/index.html"
+    },
+    "yu::tuples::regular_applicable": {
+        "fullname": "yu::tuples::regular_applicable",
+        "qualified_name": "tuples::regular_applicable",
+        "identifier": "regular_applicable",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/regular_applicable/index.html"
+    },
+    "yu::tuples::size": {
+        "fullname": "yu::tuples::size",
+        "qualified_name": "tuples::size",
+        "identifier": "size",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/size/index.html"
+    },
+    "yu::tuples::size_v": {
+        "fullname": "yu::tuples::size_v",
+        "qualified_name": "tuples::size_v",
+        "identifier": "size_v",
+        "namespace": "yu::tuples",
+        "alias": "yu::tuples::size",
+        "category": "metafn-value",
+        "status": "planned",
+        "url": "/yu/reference/tuples/size/index.html"
+    },
+    "yu::tuples::starts_with": {
+        "fullname": "yu::tuples::starts_with",
+        "qualified_name": "tuples::starts_with",
+        "identifier": "starts_with",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "function-obj",
+        "status": "planned",
+        "url": "/yu/reference/tuples/starts_with/index.html"
+    },
+    "yu::tuples::tuple": {
+        "fullname": "yu::tuples::tuple",
+        "qualified_name": "tuples::tuple",
+        "identifier": "tuple",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/tuple/index.html"
+    },
+    "yu::tuples::tuple_structured": {
+        "fullname": "yu::tuples::tuple_structured",
+        "qualified_name": "tuples::tuple_structured",
+        "identifier": "tuple_structured",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/tuple_structured/index.html"
+    }
+}

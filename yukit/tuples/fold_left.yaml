@@ -1,0 +1,4 @@
+name: yu::tuples::fold_left
+sublib: tuples
+category: function-obj
+status: planned

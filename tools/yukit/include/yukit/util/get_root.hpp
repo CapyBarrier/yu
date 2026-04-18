@@ -5,9 +5,7 @@
 
 namespace yukit::util {
 
-namespace fs = std::filesystem;
-
-fs::path get_root();
+std::filesystem::path get_root();
 
 } // namespace yukit::util
 

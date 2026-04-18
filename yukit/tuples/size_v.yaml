@@ -1,0 +1,5 @@
+name: yu::tuples::size_v
+sublib: tuples
+alias: yu::tuples::size
+category: metafn-value
+status: planned

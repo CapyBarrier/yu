@@ -1,0 +1,4 @@
+name: yu::tuples::for_each_n
+sublib: tuples
+category: function-obj
+status: planned

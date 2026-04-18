@@ -1,6 +1,6 @@
 # `yu::tuples::known_tuple`
 
-{{ status_mark('tuples.known_tuple') }}
+{{ status_mark('yu::tuples::known_tuple') }}
 
 ```cpp
 namespace yu::tuples {
@@ -26,11 +26,11 @@ namespace yu::tuples {
 
 ## 概要
 
-{{ ref('tuples.tuple') }}コンセプトの評価の動作をカスタマイズする変数テンプレート．
-`known_tuple<T>`が`true`となる型`T`に対して，{{ ref('tuples.tuple') }}コンセプトは評価を短絡する．
+{{ ref('yu::tuples::tuple') }}コンセプトの評価の動作をカスタマイズする変数テンプレート．
+`known_tuple<T>`が`true`となる型`T`に対して，{{ ref('yu::tuples::tuple') }}コンセプトは評価を短絡する．
 
 * (1): `T`に対して`known_tuple<T>`が特殊化されていないとき，デフォルトではカスタマイズされない．
 * (2): 要素数の判明している配列型に対してカスタマイズするための部分特殊化．
 * (3)-(6): C++23で*tuple-like*だと規定されている型に対してカスタマイズするための部分特殊化
 
-{{ ref('tuples.tuple') }}のモデルでない型に対する特殊化によってカスタマイズしたとき，プログラムの動作は保障されない．
+{{ ref('yu::tuples::tuple') }}のモデルでない型に対する特殊化によってカスタマイズしたとき，プログラムの動作は保障されない．

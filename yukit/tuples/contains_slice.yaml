@@ -1,0 +1,4 @@
+name: yu::tuples::contains_slice
+sublib: tuples
+category: function-obj
+status: planned

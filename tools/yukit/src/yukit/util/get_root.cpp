@@ -3,19 +3,28 @@
 #include <filesystem>
 
 namespace yukit::util {
-namespace fs = std::filesystem;
 
-fs::path get_root() {
-    fs::path       current = fs::current_path();
+std::filesystem::path get_root() {
+    namespace fs = std::filesystem;
+
+    static bool     called = false;
+    static fs::path root;
+
+    if (called) return root;
+
+    fs::path       current = fs::canonical(fs::current_path());
     const fs::path git_file{".git"};
 
     fs::directory_iterator iter{current};
 
-    bool found_git_file = false;
+    while (std::ranges::contains(iter, git_file)) iter = fs::directory_iterator{current / "../"};
 
-    while ((found_git_file = std::ranges::contains(iter, git_file))) { iter = fs::directory_iterator{current / "../"}; }
+    called = true;
 
-    return iter->path();
+    if (auto result = iter->path(); result.empty()) root = current;
+    else root = result;
+
+    return root;
 }
 
 } // namespace yukit::util

@@ -1,6 +1,6 @@
 # `yu::tuples::apply_result`
 
-{{ status_mark('tuples.apply_result') }}
+{{ status_mark('yu::tuples::apply_result') }}
 
 ```cpp
 namespace yu::tuples {
@@ -15,7 +15,7 @@ namespace yu::tuples {
 ## 概要
 
 関数呼び出し可能な型`F`に対して、 Tupleである型`T`の要素を展開して関数呼び出しした場合の戻り値型を取得する。
-`std::invoke_result`の{{ ref('tuples.apply') }}版である．
+`std::invoke_result`の{{ ref('yu::tuples::apply') }}版である．
 
 
 ## 効果

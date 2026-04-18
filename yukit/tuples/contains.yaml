@@ -1,0 +1,4 @@
+name: yu::tuples::contains
+sublib: tuples
+category: function-obj
+status: planned

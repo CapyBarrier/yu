@@ -1,6 +1,6 @@
 # `yu::tuples::is_applicable`
 
-{{ status_mark('tuples.is_applicable') }}
+{{ status_mark('yu::tuples::is_applicable') }}
 
 ```cpp
 namespace yu::tuples {
@@ -15,7 +15,7 @@ namespace yu::tuples {
 ## 概要
 
 関数呼び出し可能な型`F`に対して、 Tupleである型`T`の要素を展開して関数呼び出しが可能であるか調べる。
-`std::is_invocable`の{{ ref('tuples.apply') }}版である．
+`std::is_invocable`の{{ ref('yu::tuples::apply') }}版である．
 
 
 ## 効果

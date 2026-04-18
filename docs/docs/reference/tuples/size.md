@@ -1,6 +1,6 @@
 # `yu::tuples::size`
 
-{{ status_mark('tuples.size') }}
+{{ status_mark('yu::tuples::size') }}
 
 ```cpp
 namespace yu::tuples {

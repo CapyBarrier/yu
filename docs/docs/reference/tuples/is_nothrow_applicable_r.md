@@ -1,6 +1,6 @@
 # `yu::tuples::is_nothrow_applicable_r`
 
-{{ status_mark('tuples.is_nothrow_applicable_r') }}
+{{ status_mark('yu::tuples::is_nothrow_applicable_r') }}
 
 ```cpp
 namespace yu::tuples {
@@ -15,7 +15,7 @@ namespace yu::tuples {
 ## 概要
 
 関数呼び出し可能な型`F`に対して、 Tupleである型`T`の要素を展開して関数呼び出しが可能で，その戻り値型が`R`に変換可能であり，さらにその際に例外を送出しないことを調べる。
-`std::is_nothrow_invocable_r`の{{ ref('tuples.apply') }}版である．
+`std::is_nothrow_invocable_r`の{{ ref('yu::tuples::apply') }}版である．
 
 
 ## 効果

@@ -1,6 +1,6 @@
 # `yu::tuples::elementwise_unary_predicate`
 
-{{ status_mark('tuples.elementwise_unary_predicate') }}
+{{ status_mark('yu::tuples::elementwise_unary_predicate') }}
 
 ```cpp
 namespace yu::tuples {

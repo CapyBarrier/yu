@@ -5,7 +5,7 @@
 
 namespace yukit::util {
 
-std::string replace_ns_qualifier(const std::string& input, const std::string value);
+std::string replace_ns_qualifier(const std::string& ns_qualified_name, const std::string value);
 
 } // namespace yukit::util
 

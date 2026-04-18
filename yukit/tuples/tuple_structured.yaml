@@ -1,0 +1,4 @@
+name: yu::tuples::tuple_structured
+sublib: tuples
+category: concept
+status: planned

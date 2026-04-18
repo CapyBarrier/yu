@@ -1,0 +1,4 @@
+name: yu::tuples::apply
+sublib: tuples
+category: function-obj
+status: planned

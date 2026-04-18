@@ -1,6 +1,6 @@
 # `yu::tuples::elementwise_unary_invocable`
 
-{{ status_mark('tuples.elementwise_unary_invocable') }}
+{{ status_mark('yu::tuples::elementwise_unary_invocable') }}
 
 ```cpp
 namespace yu::tuples {
