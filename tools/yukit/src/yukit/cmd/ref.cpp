@@ -1,4 +1,5 @@
 #include <yukit/cmd/ref.hpp>
+#include <yukit/cmd/reference/make_template.hpp>
 #include <yukit/cmd/reference/pages.hpp>
 #include <yukit/cmd/reference/serve.hpp>
 #include <iostream>
@@ -20,8 +21,9 @@ int ref(std::vector<std::string> args) {
     using fn_cmd = int (*)(std::vector<std::string>);
 
     std::unordered_map<std::string, fn_cmd> cmds = {
-        {"serve", &reference::serve},
-        {"pages", &reference::pages}
+        {"make-template", &reference::make_template},
+        {        "serve",         &reference::serve},
+        {        "pages",         &reference::pages}
     };
 
     if (auto it = cmds.find(cmd); it != cmds.end()) {

@@ -5,7 +5,6 @@
 #include <yukit/util/get_root.hpp>
 #include <algorithm>
 #include <array>
-#include <cstddef>
 #include <filesystem>
 #include <fstream>
 #include <iostream>

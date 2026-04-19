@@ -14,6 +14,7 @@ target_sources(yukit
         src/yukit/cmd/make_index.cpp
         src/yukit/cmd/ref.cpp
         src/yukit/cmd/status.cpp
+        src/yukit/cmd/reference/make_template.cpp
         src/yukit/cmd/reference/serve.cpp
         src/yukit/cmd/reference/pages.cpp
 
