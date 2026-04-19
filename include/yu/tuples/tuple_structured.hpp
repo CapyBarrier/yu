@@ -22,7 +22,7 @@ concept gettable = std::regular_invocable<decltype(tuples::get<Idx>), T&&>;
 
 template <typename T, std::size_t... Idx>
 consteval bool all_gettable(std::index_sequence<Idx...>) {
-    return (gettable<T, Idx> && ...);
+    return (... && gettable<T, Idx>);
 }
 
 template <typename T>
