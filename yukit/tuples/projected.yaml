@@ -1,0 +1,4 @@
+name: yu::tuples::projected
+sublib: tuples
+category: metafn-type
+status: planned

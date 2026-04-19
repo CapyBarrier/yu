@@ -339,6 +339,26 @@
         "status": "planned",
         "url": "/yu/reference/tuples/none_of/index.html"
     },
+    "yu::tuples::projected": {
+        "fullname": "yu::tuples::projected",
+        "qualified_name": "tuples::projected",
+        "identifier": "projected",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "metafn-type",
+        "status": "planned",
+        "url": "/yu/reference/tuples/projected/index.html"
+    },
+    "yu::tuples::projected_t": {
+        "fullname": "yu::tuples::projected_t",
+        "qualified_name": "tuples::projected_t",
+        "identifier": "projected_t",
+        "namespace": "yu::tuples",
+        "alias": "yu::tuples::projected",
+        "category": "metafn-type",
+        "status": "planned",
+        "url": "/yu/reference/tuples/projected/index.html"
+    },
     "yu::tuples::regular_applicable": {
         "fullname": "yu::tuples::regular_applicable",
         "qualified_name": "tuples::regular_applicable",
