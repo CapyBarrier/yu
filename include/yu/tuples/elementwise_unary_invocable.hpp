@@ -1,7 +1,6 @@
 #ifndef YU_TUPLES_ELEMENTWISE_UNARY_INVOCABLE_HPP_
 #define YU_TUPLES_ELEMENTWISE_UNARY_INVOCABLE_HPP_
 
-#endif
 #include "element_t.hpp"
 #include "index_sequence_for.hpp"
 #include "tuple.hpp"
