@@ -19,7 +19,7 @@ int status(std::vector<std::string> args) {
 
     if (const auto size = args.size(); size != 0 && size != 1 && size != 2) {
         std::cerr << "Invalid number of arguments.\n";
-        std::cerr << "For manual: yukit status <entity>\n";
+        std::cerr << "For manual: yukit status <entity> [new-status-opt]\n";
         std::cerr << "For interactive: yukit status";
         return 1;
     }
@@ -87,10 +87,10 @@ int status(std::vector<std::string> args) {
 
         change_status = (input == "y");
     } else {
-        std::cerr << "Entity \'" << entity << "\' is now \'" << status << "\'.";
-
         change_status = (args.size() == 2);
     }
+
+    if (!change_status && !interactive) { std::cerr << "Entity \'" << entity << "\' is now \'" << status << "\'."; }
 
     if (!change_status) return 0;
 
@@ -108,7 +108,7 @@ int status(std::vector<std::string> args) {
             for (const auto& valid_status : valid_statuses) std::cout << '\t' << valid_status << '\n';
         }
     } else {
-        new_status = args[2];
+        new_status = args[1];
         if (!std::ranges::contains(valid_statuses, new_status)) {
             std::cerr << '\'' << status << "\' is invalid for status.";
             return 1;
