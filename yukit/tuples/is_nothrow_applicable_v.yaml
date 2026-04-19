@@ -2,4 +2,5 @@ name: yu::tuples::is_nothrow_applicable_v
 sublib: tuples
 alias: yu::tuples::is_nothrow_applicable
 category: metafn-value
-status: planned
+status: stable
+

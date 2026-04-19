@@ -1,4 +1,5 @@
 name: yu::tuples::applicable
 sublib: tuples
 category: concept
-status: planned
+status: stable
+

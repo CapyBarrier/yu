@@ -2,4 +2,5 @@ name: yu::tuples::apply_result_t
 sublib: tuples
 alias: yu::tuples::apply_result
 category: metafn-type
-status: planned
+status: stable
+

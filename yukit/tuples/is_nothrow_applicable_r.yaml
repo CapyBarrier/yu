@@ -1,4 +1,5 @@
 name: yu::tuples::is_nothrow_applicable_r
 sublib: tuples
 category: metafn-value
-status: planned
+status: stable
+

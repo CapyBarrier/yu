@@ -26,7 +26,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "concept",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/applicable/index.html"
     },
     "yu::tuples::apply": {
@@ -36,7 +36,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "function-obj",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/apply/index.html"
     },
     "yu::tuples::apply_result": {
@@ -46,7 +46,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "metafn-type",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/apply_result/index.html"
     },
     "yu::tuples::apply_result_t": {
@@ -56,7 +56,7 @@
         "namespace": "yu::tuples",
         "alias": "yu::tuples::apply_result",
         "category": "metafn-type",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/apply_result/index.html"
     },
     "yu::tuples::contains": {
@@ -106,7 +106,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "concept",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/elementwise_unary_invocable/index.html"
     },
     "yu::tuples::elementwise_unary_predicate": {
@@ -116,7 +116,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "concept",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/elementwise_unary_predicate/index.html"
     },
     "yu::tuples::elementwise_unary_regular_invocable": {
@@ -136,7 +136,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "alias-tmpl",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/element_t/index.html"
     },
     "yu::tuples::ends_with": {
@@ -226,7 +226,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "cpo",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/get/index.html"
     },
     "yu::tuples::index_sequence_for": {
@@ -236,7 +236,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "metafn-type",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/index_sequence_for/index.html"
     },
     "yu::tuples::is_applicable": {
@@ -246,7 +246,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/is_applicable/index.html"
     },
     "yu::tuples::is_applicable_r": {
@@ -256,7 +256,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/is_applicable_r/index.html"
     },
     "yu::tuples::is_applicable_r_v": {
@@ -266,7 +266,7 @@
         "namespace": "yu::tuples",
         "alias": "yu::tuples::is_applicable_r",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/is_applicable_r/index.html"
     },
     "yu::tuples::is_applicable_v": {
@@ -276,7 +276,7 @@
         "namespace": "yu::tuples",
         "alias": "yu::tuples::is_applicable",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/is_applicable/index.html"
     },
     "yu::tuples::is_nothrow_applicable": {
@@ -286,7 +286,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/is_nothrow_applicable/index.html"
     },
     "yu::tuples::is_nothrow_applicable_r": {
@@ -296,7 +296,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/is_nothrow_applicable_r/index.html"
     },
     "yu::tuples::is_nothrow_applicable_r_v": {
@@ -306,7 +306,7 @@
         "namespace": "yu::tuples",
         "alias": "yu::tuples::is_nothrow_applicable_r",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/is_nothrow_applicable_r/index.html"
     },
     "yu::tuples::is_nothrow_applicable_v": {
@@ -316,7 +316,7 @@
         "namespace": "yu::tuples",
         "alias": "yu::tuples::is_nothrow_applicable",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/is_nothrow_applicable/index.html"
     },
     "yu::tuples::known_tuple": {
@@ -326,7 +326,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "variable-tmpl",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/known_tuple/index.html"
     },
     "yu::tuples::none_of": {
@@ -346,7 +346,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "concept",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/regular_applicable/index.html"
     },
     "yu::tuples::size": {
@@ -356,7 +356,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "metafn-value",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/size/index.html"
     },
     "yu::tuples::size_v": {
@@ -386,7 +386,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "concept",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/tuple/index.html"
     },
     "yu::tuples::tuple_structured": {
@@ -396,7 +396,7 @@
         "namespace": "yu::tuples",
         "alias": "",
         "category": "concept",
-        "status": "planned",
+        "status": "stable",
         "url": "/yu/reference/tuples/tuple_structured/index.html"
     }
 }

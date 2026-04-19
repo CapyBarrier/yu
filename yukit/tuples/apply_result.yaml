@@ -1,4 +1,5 @@
 name: yu::tuples::apply_result
 sublib: tuples
 category: metafn-type
-status: planned
+status: stable
+

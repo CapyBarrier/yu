@@ -1,4 +1,5 @@
 name: yu::tuples::size
 sublib: tuples
 category: metafn-value
-status: planned
+status: stable
+

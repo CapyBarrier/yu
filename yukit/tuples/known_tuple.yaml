@@ -1,4 +1,5 @@
 name: yu::tuples::known_tuple
 sublib: tuples
 category: variable-tmpl
-status: planned
+status: stable
+

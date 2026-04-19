@@ -1,4 +1,5 @@
 name: yu::tuples::is_applicable
 sublib: tuples
 category: metafn-value
-status: planned
+status: stable
+
