@@ -1,5 +1,0 @@
-name: yu::tuples::projected_t
-sublib: tuples
-alias: yu::tuples::projected
-category: metafn-type
-status: planned

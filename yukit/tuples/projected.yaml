@@ -1,4 +1,4 @@
 name: yu::tuples::projected
 sublib: tuples
-category: metafn-type
-status: planned
+category: class-tmpl
+status: unimplemented
