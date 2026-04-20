@@ -73,6 +73,7 @@ C++標準ライブラリの`<ranges>`と`<algorithm>`が提供する操作を，
 
 {{ entity_row_begin() }}
 {{ entity_row('yu::tuples::elementwise_unary_invocable', '各要素に対して呼び出しが可能') }}
+{{ entity_row('yu::tuples::elementwise_unary_regular_invocable', '各要素に対して正則呼び出しが可能') }}
 {{ entity_row('yu::tuples::elementwise_unary_predicate', '各要素に対する述語') }}
 
 
