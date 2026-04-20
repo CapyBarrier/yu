@@ -109,7 +109,7 @@ int status(std::vector<std::string> args) {
     } else {
         new_status = args[1];
         if (!std::ranges::contains(valid_statuses, new_status)) {
-            std::cerr << '\'' << new_status << "\' is invalid for status.";
+            std::cerr << '\'' << status << "\' is invalid for status.";
             return 1;
         }
     }
