@@ -99,6 +99,16 @@
         "status": "planned",
         "url": "/yu/reference/tuples/count_if/index.html"
     },
+    "yu::tuples::elementwise_binary_predicate_with": {
+        "fullname": "yu::tuples::elementwise_binary_predicate_with",
+        "qualified_name": "tuples::elementwise_binary_predicate_with",
+        "identifier": "elementwise_binary_predicate_with",
+        "namespace": "yu::tuples",
+        "alias": "",
+        "category": "concept",
+        "status": "planned",
+        "url": "/yu/reference/tuples/elementwise_binary_predicate_with/index.html"
+    },
     "yu::tuples::elementwise_unary_invocable": {
         "fullname": "yu::tuples::elementwise_unary_invocable",
         "qualified_name": "tuples::elementwise_unary_invocable",
@@ -345,18 +355,8 @@
         "identifier": "projected",
         "namespace": "yu::tuples",
         "alias": "",
-        "category": "metafn-type",
-        "status": "planned",
-        "url": "/yu/reference/tuples/projected/index.html"
-    },
-    "yu::tuples::projected_t": {
-        "fullname": "yu::tuples::projected_t",
-        "qualified_name": "tuples::projected_t",
-        "identifier": "projected_t",
-        "namespace": "yu::tuples",
-        "alias": "yu::tuples::projected",
-        "category": "metafn-type",
-        "status": "planned",
+        "category": "class-tmpl",
+        "status": "unimplemented",
         "url": "/yu/reference/tuples/projected/index.html"
     },
     "yu::tuples::regular_applicable": {

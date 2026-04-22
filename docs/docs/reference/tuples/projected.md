@@ -11,7 +11,7 @@ namespace yu::tuples {
         std::invoke_result_t<Proj, element_t<Idx, U>> get() const; // 宣言のみ
     };
 
-    template <yu::tuples::tuple T, yu::tuples::elementwise_unary_regular_invocable<T> Proj>
+    template <tuple T, elementwise_unary_regular_invocable<T> Proj>
     inline constexpr bool known_tuple = known_tuple<T>;
 }
 

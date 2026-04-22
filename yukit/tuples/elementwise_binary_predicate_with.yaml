@@ -1,0 +1,4 @@
+name: yu::tuples::elementwise_binary_predicate_with
+sublib: tuples
+category: concept
+status: planned
