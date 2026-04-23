@@ -6,13 +6,13 @@
 namespace yu::tuples {
     template <tuple T, elementwise_unary_regular_invocable<T> Proj>
     struct projected {
-        template <std::size_t Idx, typename U>
-        requires (Idx < size_v<U>)
-        std::invoke_result_t<Proj, element_t<Idx, U>> get() const; // 宣言のみ
+        template <std::size_t Idx>
+        requires (Idx < size_v<T>)
+        std::invoke_result_t<Proj, element_t<Idx, T>> get() const; // 宣言のみ
     };
 
     template <tuple T, elementwise_unary_regular_invocable<T> Proj>
-    inline constexpr bool known_tuple = known_tuple<T>;
+    inline constexpr bool known_tuple<projected<T, Proj>> = known_tuple<T>;
 }
 
 namespace std {
