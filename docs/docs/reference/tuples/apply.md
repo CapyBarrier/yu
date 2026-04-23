@@ -6,8 +6,8 @@
 namespace yu::tuples {
     namespace unspecified {
         struct unspecified {
-            template <typename F, tuple T>
-            static constexpr apply_result_t<F, T> operator()(F&& f, T&& t) noexcept(is_nothrow_applicable_v<F, T>);
+            template <typename Fn, tuple Tuple>
+            static constexpr apply_result_t<Fn, Tuple> operator()(Fn&& fn, Tuple&& tuple) noexcept(is_nothrow_applicable_v<Fn, Tuple>);
         };
     }
 
@@ -30,14 +30,14 @@ Tupleを展開し，関数の引数に適用してその関数を実行する．
 
 次のような関数があるとき，
 ```cpp
-template<typename F, tuple T, std::size_t... Idx>
-constexpr decltype(auto) apply_impl(F&& f, T&& t, std::index_sequence<Idx...>) {
-  return std::invoke(std::forward<F>(f), tuples::get<Idx>(std::forward<T>(t))...);
+template<typename Fn, tuple Tuple, std::size_t... Idx>
+constexpr decltype(auto) apply_impl(Fn&& fn, Tuple&& tuple, std::index_sequence<Idx...>) {
+  return std::invoke(std::forward<Fn>(fn), tuples::get<Idx>(std::forward<Tuple>(tuple))...);
 }
 ```
 次と等価である．
 ```cpp
-apply_impl(std::forward<F>(f), std::forward<T>(t), index_sequence_for<T>{});
+apply_impl(std::forward<Fn>(fn), std::forward<Tuple>(tuple), index_sequence_for<Tuple>{});
 ```
 
 ### 戻り値
@@ -47,4 +47,4 @@ apply_impl(std::forward<F>(f), std::forward<T>(t), index_sequence_for<T>{});
 
 ### 例外
 
-例外指定は{{ ref('yu::tuples::is_nothrow_applicable_v<F, Tuple>') }}による．
+例外指定は{{ ref('yu::tuples::is_nothrow_applicable_v<Fn, Tuple>') }}による．

@@ -8,7 +8,7 @@ namespace yu::tuples {
         struct unspecified {
             template <tuple Tuple, typename Pred, typename Proj = std::identity>
             requires elementwise_unary_predicate<Pred, projected<Tuple, Proj>>
-            static constexpr bool operator()(Tuple&& t, Pred pred, Proj proj = {});
+            static constexpr bool operator()(Tuple&& tuple, Pred pred, Proj proj = {});
         };
     }
 

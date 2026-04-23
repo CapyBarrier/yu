@@ -4,15 +4,15 @@
 
 ```cpp
 namespace yu::tuples {
-    template <typename F, typename T>
+    template <typename Fn, typename T>
     concept elementwise_unary_predicate = see_below;
 }
 ```
 
 ## 概要
 
-`elementwise_unary_predicate`は，任意の関数呼び出し可能な型`F`が，型`T`をTupleとして展開した各要素によって，述語として呼び出し可能であることを表すコンセプトである．
-これは，`F`が`T`をTupleとして展開した各要素で正則呼び出し可能であり，かつそれらすべての呼び出しの戻り値が`bool`に変換可能であることと同値である．
+`elementwise_unary_predicate`は，任意の関数呼び出し可能な型`Fn`が，型`T`をTupleとして展開した各要素によって，述語として呼び出し可能であることを表すコンセプトである．
+これは，`Fn`が`T`をTupleとして展開した各要素で正則呼び出し可能であり，かつそれらすべての呼び出しの戻り値が`bool`に変換可能であることと同値である．
 
 
 ## 例

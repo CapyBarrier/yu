@@ -4,16 +4,16 @@
 
 ```cpp
 namespace yu::tuples {
-    template <typename F, typename T>
-    concept applicable = requires(F&& f, T&& t){
-        tuples::apply(std::forward<F>(f), std::forward<T>(t));
+    template <typename Fn, typename T>
+    concept applicable = requires(Fn&& fn, T&& t){
+        tuples::apply(std::forward<Fn>(fn), std::forward<T>(t));
     };
 }
 ```
 
 ## 概要
 
-`applicable`は，任意の関数呼び出し可能な型`F`に対して，型`T`の要素をTupleとして展開して呼び出し可能であることを表すコンセプトである．
+`applicable`は，任意の関数呼び出し可能な型`Fn`に対して，型`T`の要素をTupleとして展開して呼び出し可能であることを表すコンセプトである．
 
 `std::invocable`の{{ ref('yu::tuples::apply') }}版である．
 

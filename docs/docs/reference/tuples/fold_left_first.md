@@ -6,9 +6,9 @@
 namespace yu::tuples {
     namespace unspecified {
         struct unspecified {
-            template <tuple Tuple, typename F>
+            template <tuple Tuple, typename Fn>
             requires see_below
-            static constexpr auto operator()(Tuple&& t, F fn);
+            static constexpr auto operator()(Tuple&& tuple, Fn fn);
         };
     }
 

@@ -4,14 +4,14 @@
 
 ```cpp
 namespace yu::tuples {
-    template <typename F, typename T>
-    concept regular_applicable = applicable<T>;
+    template <typename F, typename Tuple>
+    concept regular_applicable = applicable<Tuple>;
 }
 ```
 
 ## 概要
 
-`regular_applicable`は，任意の関数呼び出し可能な型`F`に対して，型`T`の要素をTupleとして展開して，正則呼び出し可能であることを表すコンセプトである．
+`regular_applicable`は，任意の関数呼び出し可能な型`Fn`に対して，型`Tuple`の要素をTupleとして展開して，正則呼び出し可能であることを表すコンセプトである．
 ただし，このことは構文的には検証されず，純粋に意味論的な制約として存在する．
 
 `std::regular_invocable`の{{ ref('yu::tuples::apply') }}版である．

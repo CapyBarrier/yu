@@ -4,7 +4,7 @@
 
 ```cpp
 namespace yu::tuples {
-    template <typename Pred, typename Tuple, typename T>
+    template <typename Pred, typename T, typename U>
     concept elementwise_binary_predicate_with = see_below;
 }
 ```

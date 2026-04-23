@@ -4,23 +4,23 @@
 
 ```cpp
 namespace yu::tuples {
-    template <typename F, typename T>
+    template <typename Fn, typename T>
     struct apply_result;
 
-    template <typename F, typename T>
+    template <typename Fn, typename T>
     using apply_result_t = typename apply_result<F, Tuple>::type;
 }
 ```
 
 ## 概要
 
-関数呼び出し可能な型`F`に対して、 Tupleである型`T`の要素を展開して関数呼び出しした場合の戻り値型を取得する。
+関数呼び出し可能な型`Fn`に対して、 Tupleである型`T`の要素を展開して関数呼び出しした場合の戻り値型を取得する。
 `std::invoke_result`の{{ ref('yu::tuples::apply') }}版である．
 
 
 ## 効果
 
-Tupleを展開して型`F`のオブジェクトを関数呼び出しする式が有効であれば，その式の型をメンバ型エイリアス`type`に定義する．そうでなければ，メンバ型エイリアス`type`は定義されない．
+Tupleを展開して型`Fn`のオブジェクトを関数呼び出しする式が有効であれば，その式の型をメンバ型エイリアス`type`に定義する．そうでなければ，メンバ型エイリアス`type`は定義されない．
 
 
 ## 例

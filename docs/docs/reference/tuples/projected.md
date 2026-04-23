@@ -4,25 +4,25 @@
 
 ```cpp
 namespace yu::tuples {
-    template <tuple T, elementwise_unary_regular_invocable<T> Proj>
+    template <tuple Tuple, elementwise_unary_regular_invocable<Tuple> Proj>
     struct projected {
         template <std::size_t Idx>
-        requires (Idx < size_v<T>)
-        std::invoke_result_t<Proj, element_t<Idx, T>> get() const; // 宣言のみ
+        requires (Idx < size_v<Tuple>)
+        std::invoke_result_t<Proj, element_t<Idx, Tuple>> get() const; // 宣言のみ
     };
 
-    template <tuple T, elementwise_unary_regular_invocable<T> Proj>
-    inline constexpr bool known_tuple<projected<T, Proj>> = known_tuple<T>;
+    template <tuple Tuple, elementwise_unary_regular_invocable<Tuple> Proj>
+    inline constexpr bool known_tuple<projected<Tuple, Proj>> = known_tuple<Tuple>;
 }
 
 namespace std {
-    template <yu::tuples::tuple T, yu::tuples::elementwise_unary_regular_invocable<T> Proj>
-    struct tuple_size<yu::tuples::projected<T, Proj>> : yu::tuples::size<T> {};
+    template <yu::tuples::tuple Tuple, yu::tuples::elementwise_unary_regular_invocable<Tuple> Proj>
+    struct tuple_size<yu::tuples::projected<Tuple, Proj>> : yu::tuples::size<Tuple> {};
 }
 ```
 
 ## 概要
 
-Tupleな型`T`に任意の射影`Proj`を適用した結果を表すTupleな型を生成する．
+Tupleな型`Tuple`に任意の射影`Proj`を適用した結果を表すTupleな型を生成する．
 
 これは射影を受け取るコンセプトやアルゴリズムを制約するために使用するものであり，評価される文脈で使用してはならない．

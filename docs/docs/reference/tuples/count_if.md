@@ -6,9 +6,9 @@
 namespace yu::tuples {
     namespace unspecified {
         struct unspecified {
-            template <tuple T, typename Pred, typename Proj = std::identity>
-            requires elementwise_unary_predicate<Pred, projected<T, Pred>>
-            static constexpr operator()(T&& t, Pred pred, Proj proj = {});
+            template <tuple Tuple, typename Pred, typename Proj = std::identity>
+            requires elementwise_unary_predicate<Pred, projected<Tuple, Pred>>
+            static constexpr operator()(Tuple&& tuple, Pred pred, Proj proj = {});
         };
     }
 
